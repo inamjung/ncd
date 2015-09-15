@@ -35,8 +35,7 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'encodeLabels' => false,
-                'items' => [
-                    
+                'items' => [                    
                     ['label' => 'รายงานDM',
                         'items' => [
                             ['label' => 'DM คัดกรองอายุ35ปีขึ้นไป', 'url' => ['/dm/dmscreen']],
@@ -58,8 +57,18 @@ AppAsset::register($this);
                     ],
                     ['label' => 'รายงานHT',
                         'items' => [
-                            ['label' => 'report1', 'url' => ['/ht/admin']],
-                            ['label' => 'report2', 'url' => ['/ht/create']],
+                            ['label' => 'HT คัดกรองอายุ35ปีขึ้นไป', 'url' => ['/ht/htscreen']],
+                            ['label' => 'HT ได้รับการตรวจ Creatinin', 'url' => ['/ht/htcreatinin']],
+                            ['label' => 'HT ได้รับการตรวจ Lipid profile', 'url' => ['/ht/htlipid']],
+                            ['label' => 'HT ได้รับการตรวจน้ำตาล', 'url' => ['/ht/htfbs']],
+                            ['label' => 'HT ที่ควบคุมได้ 2 ครั้งสุดท้าย', 'url' => ['/ht/htcontrol']],
+                            ['label' => 'HT พบภาวะแทรกซ้อน เบาหวาน', 'url' => ['/ht/htdm']],
+                            ['label' => 'HT พบภาวะแทรกซ้อน หลอดเลือดสมอง', 'url' => ['/ht/htstroke']],
+                            ['label' => 'HT พบภาวะแทรกซ้อน หัวใจและหลอดเลือด', 'url' => ['/ht/htheart']],
+                            ['label' => 'HT พบภาวะแทรกซ้อนทางไต', 'url' => ['/ht/htkidney']],
+                            ['label' => 'HT รายใหม่จากกลุ่ม PreHT', 'url' => ['/ht/htpreht']],
+                            ['label' => 'HT ขึ้นทะเบียน', 'url' => ['/ht/htpatient']],
+                            ['label' => 'HT รับบริการที่สถานบริการ', 'url' => ['/ht/htpatientvisit']],
 
                         ]
                     ],
