@@ -48,6 +48,7 @@ MaterialAsset::register($this);
                             ['label' => 'DM ตรวจเท้า', 'url' => ['/dm/dmfoot']],
                             ['label' => 'DM ที่ควบคุมได้2ครั้งสุดท้าย', 'url' => ['/dm/dmcontrol']],
                             ['label' => 'DM พบภาวะแทรกซ้อนความดัน', 'url' => ['/dm/dmht']],
+                            ['label' => 'DM รายใหม่จากกลุ่ม PreDM', 'url' => ['/dm/dmpredm']],
                             ['label' => 'DM พบภาวะแทรกซ้อนทางไต', 'url' => ['/dm/dmkidney']],
                             ['label' => 'DM พบภาวะแทรกซ้อน หลอดเลือดสมอง', 'url' => ['/dm/dmstroke']],
                             ['label' => 'DM พบภาวะแทรกซ้อน หัวใจและหลอดเลือด', 'url' => ['/dm/dmheart']],

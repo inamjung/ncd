@@ -21,20 +21,8 @@ $this->params['breadcrumbs'][]=$this->title;
 
 <?php Pjax::begin();?> 
 <?php
-echo \kartik\grid\GridView::widget([
-    'dataProvider' => $dataProvider,
-    'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
-    'responsive' => TRUE,
-    'hover' => true,
-    'floatHeader' => FALSE,
-    'panel' => [
-        'heading'=>'DM พบภาวะแทรกซ้อน หลอดเลือดสมอง ปี 2558',
-        'before' => '',
-        'type' => \kartik\grid\GridView::TYPE_SUCCESS,
-       
-    ],
-    'columns'=>[
-        ['class'=>'yii\grid\SerialColumn'],
+$gridColumns = [
+    ['class'=>'kartik\grid\SerialColumn'], 
         
        [
             'label'=>'เครือข่ายบริการ(CUP)',
@@ -48,16 +36,22 @@ echo \kartik\grid\GridView::widget([
             }            
         ],         
         [
+            'class' => 'kartik\grid\DataColumn',
+            'attribute' => 'target',
             'label'=>'เป้าหมาย(คน)',
-            'attribute'=>'target',
             'format'=>'integer',
+            'pageSummary' => true,
+            'vAlign' => 'middle',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],
         ],
         [
+            'class' => 'kartik\grid\DataColumn',
             'label'=>'ผลงาน (คน)',
-            'attribute'=>'result',
+            'attribute' => 'result',
             'format'=>'integer',
+            'pageSummary' => true,
+            'vAlign' => 'middle',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],
         ],
@@ -67,9 +61,22 @@ echo \kartik\grid\GridView::widget([
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],
         ],
-       ],    
-]);
-?>
+      ];           
+            echo GridView::widget([
+            'dataProvider' => $dataProvider,
+            'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
+            'columns' => $gridColumns,
+            'responsive' => true,
+            'hover' => true,
+            'floatHeader' => FALSE,        
+            'showPageSummary' => true,
+            'panel' => [           
+                'type' => GridView::TYPE_SUCCESS,
+                'heading' => 'DM พบภาวะแทรกซ้อน หลอดเลือดสมอง ปี 2558',
+
+                        ],
+                    ]);
+            ?>
 <?php Pjax::end();?> 
 
 <?php echo Highcharts::widget([
