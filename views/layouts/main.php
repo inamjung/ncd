@@ -45,10 +45,13 @@ AppAsset::register($this);
                             ['label' => 'DM ได้รับการตรวจ Microalbumin', 'url' => ['/dm/dmmicroal']],
                             ['label' => 'DM ตรวจตา', 'url' => ['/dm/dmeye']],
                             ['label' => 'DM ตรวจเท้า', 'url' => ['/dm/dmfoot']],
-                            ['label' => 'DM ได้รับการตรวจ Microalbumin', 'url' => ['/dm/dmmicroal']],
-                            ['label' => 'DM ได้รับการตรวจ Microalbumin', 'url' => ['/dm/dmmicroal']],
-                            ['label' => 'DM ได้รับการตรวจ Microalbumin', 'url' => ['/dm/dmmicroal']],
-                            ['label' => 'DM ได้รับการตรวจ Microalbumin', 'url' => ['/dm/dmmicroal']],
+                            ['label' => 'DM ที่ควบคุมได้2ครั้งสุดท้าย', 'url' => ['/dm/dmcontrol']],
+                            ['label' => 'DM พบภาวะแทรกซ้อนความดัน', 'url' => ['/dm/dmht']],
+                            ['label' => 'DM พบภาวะแทรกซ้อนทางไต', 'url' => ['/dm/dmkidney']],
+                            ['label' => 'DM พบภาวะแทรกซ้อน หลอดเลือดสมอง', 'url' => ['/dm/dmstroke']],
+                            ['label' => 'DM พบภาวะแทรกซ้อน หัวใจและหลอดเลือด', 'url' => ['/dm/dmheart']],
+                            ['label' => 'DM ขึ้นทะเบียน', 'url' => ['/dm/dmpatient']],
+                            ['label' => 'DM รับบริการที่สถานบริการ', 'url' => ['/dm/dmpatientvisit']]
                             
 
                         ]
