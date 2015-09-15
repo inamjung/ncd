@@ -86,7 +86,7 @@ $dataProvider = new ArrayDataProvider([
             'floatHeader' => FALSE,        
            //'showPageSummary' => true,
             'panel' => [           
-                'type' => GridView::TYPE_DANGER,
+                'type' => GridView::TYPE_SUCCESS,
                 'heading' => 'HT คัดกรองอายุ35ปีขึ้นไป ปี 2558',
 
                         ],

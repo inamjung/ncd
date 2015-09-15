@@ -86,7 +86,7 @@ $dataProvider = new ArrayDataProvider([
             'floatHeader' => FALSE,        
            //'showPageSummary' => true,
             'panel' => [           
-                'type' => GridView::TYPE_DANGER,
+                'type' => GridView::TYPE_SUCCESS,
                 'heading' => 'HT ที่ควบคุมได้ 2 ครั้งสุดท้าย ปี 2558',
 
                         ],

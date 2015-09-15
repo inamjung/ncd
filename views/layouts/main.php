@@ -4,11 +4,13 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\assets\MaterialAsset;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-AppAsset::register($this);
+//AppAsset::register($this);
+MaterialAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -26,7 +28,7 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
+                'brandLabel' => '<i class="glyphicon glyphicon-stats"></i> ระบบสารสนเทศผู้ป่วยโรคเบาหวานความดัน จังหวัดพิษณุโลก',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
@@ -36,7 +38,7 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'encodeLabels' => false,
                 'items' => [                    
-                    ['label' => 'รายงานDM',
+                    ['label' => '<i class="glyphicon glyphicon-list"></i> รายงานDM',
                         'items' => [
                             ['label' => 'DM คัดกรองอายุ35ปีขึ้นไป', 'url' => ['/dm/dmscreen']],
                             ['label' => 'DM DM ได้รับการตรวจ HbA1C', 'url' => ['/dm/dmhba1c']],
@@ -55,7 +57,7 @@ AppAsset::register($this);
 
                         ]
                     ],
-                    ['label' => 'รายงานHT',
+                    ['label' => '<i class="glyphicon glyphicon-list"></i> รายงานHT',
                         'items' => [
                             ['label' => 'HT คัดกรองอายุ35ปีขึ้นไป', 'url' => ['/ht/htscreen']],
                             ['label' => 'HT ได้รับการตรวจ Creatinin', 'url' => ['/ht/htcreatinin']],
@@ -79,7 +81,7 @@ AppAsset::register($this);
             NavBar::end();
         ?>
 
-        <div class="container">
+       <div class="container" style="margin-top: 80px;">
             <?= Breadcrumbs::widget([
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]) ?>
@@ -89,7 +91,7 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+            <p class="pull-left">&copy; สสจ.พิษณุโลก <?= date('Y') ?></p>
             <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
     </footer>
