@@ -34,15 +34,34 @@ AppAsset::register($this);
             ]);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
+                'encodeLabels' => false,
                 'items' => [
-                    ['label' => 'Home', 'url' => ['/site/index']],
-                    ['label' => 'About', 'url' => ['/site/about']],
-                    ['label' => 'Contact', 'url' => ['/site/contact']],
-                    Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['/site/login']] :
-                        ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                            'url' => ['/site/logout'],
-                            'linkOptions' => ['data-method' => 'post']],
+                    
+                    ['label' => 'รายงานDM',
+                        'items' => [
+                            ['label' => 'DM คัดกรองอายุ35ปีขึ้นไป', 'url' => ['/dm/dmscreen']],
+                            ['label' => 'DM DM ได้รับการตรวจ HbA1C', 'url' => ['/dm/dmhba1c']],
+                            ['label' => 'DM ได้รับการตรวจ Lipid profile', 'url' => ['/dm/dmlipid']],
+                            ['label' => 'DM ได้รับการตรวจ Microalbumin', 'url' => ['/dm/dmmicroal']],
+                            ['label' => 'DM ตรวจตา', 'url' => ['/dm/dmeye']],
+                            ['label' => 'DM ตรวจเท้า', 'url' => ['/dm/dmfoot']],
+                            ['label' => 'DM ได้รับการตรวจ Microalbumin', 'url' => ['/dm/dmmicroal']],
+                            ['label' => 'DM ได้รับการตรวจ Microalbumin', 'url' => ['/dm/dmmicroal']],
+                            ['label' => 'DM ได้รับการตรวจ Microalbumin', 'url' => ['/dm/dmmicroal']],
+                            ['label' => 'DM ได้รับการตรวจ Microalbumin', 'url' => ['/dm/dmmicroal']],
+                            
+
+                        ]
+                    ],
+                    ['label' => 'รายงานHT',
+                        'items' => [
+                            ['label' => 'report1', 'url' => ['/ht/admin']],
+                            ['label' => 'report2', 'url' => ['/ht/create']],
+
+                        ]
+                    ],
+                    
+                    
                 ],
             ]);
             NavBar::end();
