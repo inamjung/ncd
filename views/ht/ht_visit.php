@@ -51,18 +51,21 @@ echo \kartik\grid\GridView::widget([
         [
             'label'=>'เป้าหมาย(คน) ',
             'attribute'=>'total',
+            'format'=>'integer',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],
         ],
          [
             'label'=>'รับบริการ(คน) ',
             'attribute'=>'visit',
+             'format'=>'integer',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],
         ],
         [
             'label'=>'รับบริการ(ครั้ง) ',
             'attribute'=>'visit_all',
+            'format'=>'integer',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],
         ],        

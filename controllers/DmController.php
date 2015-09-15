@@ -19,8 +19,8 @@ class DmController extends Controller {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-             SELECT distcode, cup ,FORMAT(SUM(target),0)as target , Format(SUM(result),0) as result
-            ,FORMAT(SUM(risk),0) as risk,FORMAT(SUM(riskhigh),0) as riskhigh
+             SELECT distcode, cup ,SUM(target)as target , SUM(result)as result
+            ,SUM(risk)as risk,SUM(riskhigh) as riskhigh
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM dm_screen
             GROUP BY cup
@@ -69,7 +69,7 @@ class DmController extends Controller {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-             SELECT distcode, cup ,FORMAT(SUM(target),0)as target , Format(SUM(result),0) as result
+             SELECT distcode, cup ,SUM(target)as target , SUM(result)as result
                 ,ROUND((SUM(result) * 100)/SUM(target),2) as total
                 FROM dm_hba1c
                 GROUP BY cup
@@ -116,12 +116,12 @@ public function actionDmlipid() {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-             SELECT distcode, cup ,FORMAT(SUM(target),0)as target , Format(SUM(result),0) as result
+             SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
-            ,FORMAT(SUM(hdl),0) as hdl,FORMAT(SUM(hdl_r),0) as hdl_r
-            ,FORMAT(SUM(ldl),0) as ldl,FORMAT(SUM(ldl_r),0) as ldl_r
-            ,FORMAT(SUM(chol),0) as chol,FORMAT(SUM(chol_r),0) as chol_r
-            ,FORMAT(SUM(tg),0) as tg,FORMAT(SUM(tg_r),0) as tg_r
+            ,SUM(hdl) as hdl,SUM(hdl_r) as hdl_r
+            ,SUM(ldl) as ldl,SUM(ldl_r) as ldl_r
+            ,SUM(chol) as chol,SUM(chol_r) as chol_r
+            ,SUM(tg) as tg,SUM(tg_r) as tg_r
             FROM dm_lipid GROUP BY cup
                         ')->queryAll();
         //เตรียมข้อมูลส่งให้กราฟ
@@ -170,7 +170,7 @@ public function actionDmlipid() {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-             SELECT distcode, cup ,FORMAT(SUM(target),0)as target , Format(SUM(result),0) as result
+             SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM dm_microalbumin
             GROUP BY cup
@@ -218,7 +218,7 @@ public function actionDmlipid() {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-             SELECT distcode, cup ,FORMAT(SUM(target),0)as target , Format(SUM(result),0) as result
+             SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM dm_eye
             GROUP BY cup
@@ -267,7 +267,7 @@ public function actionDmlipid() {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-             SELECT distcode, cup ,FORMAT(SUM(target),0)as target , Format(SUM(result),0) as result
+             SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM dm_foot
             GROUP BY cup
@@ -316,7 +316,7 @@ public function actionDmlipid() {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-             SELECT distcode, cup ,FORMAT(SUM(target),0)as target , Format(SUM(result),0) as result
+             SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM dm_control
             GROUP BY cup
@@ -365,7 +365,7 @@ public function actionDmlipid() {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-             SELECT distcode, cup ,FORMAT(SUM(target),0)as target , Format(SUM(result),0) as result
+             SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM dm_ht
             GROUP BY cup
@@ -414,7 +414,7 @@ public function actionDmlipid() {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-             SELECT distcode, cup ,FORMAT(SUM(target),0)as target , Format(SUM(result),0) as result
+             SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM dm_kidney
             GROUP BY cup
@@ -463,7 +463,7 @@ public function actionDmlipid() {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-             SELECT distcode, cup ,FORMAT(SUM(target),0)as target , Format(SUM(result),0) as result
+             SELECT distcode, cup ,SUM(target)as target ,SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM dm_stroke
             GROUP BY cup
@@ -512,7 +512,7 @@ public function actionDmlipid() {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-             SELECT distcode, cup ,FORMAT(SUM(target),0)as target , Format(SUM(result),0) as result
+             SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM dm_heart
             GROUP BY cup
@@ -561,7 +561,7 @@ public function actionDmlipid() {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-             SELECT distcode, cup ,FORMAT(SUM(target),0)as target , Format(SUM(result),0) as result
+             SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM dm_predm
             GROUP BY cup
@@ -610,7 +610,7 @@ public function actionDmlipid() {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-             SELECT distcode, cup ,FORMAT(SUM(total),0)as total 
+             SELECT distcode, cup ,SUM(total)as total 
             FROM dm_patient
             GROUP BY cup
                         ')->queryAll();
@@ -654,9 +654,9 @@ public function actionDmlipid() {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-           SELECT distcode, cup ,FORMAT(SUM(total),0)as total 
-            ,Format(SUM(visit),0) as visit
-            ,Format(SUM(visit_all),0) as visit_all
+           SELECT distcode, cup ,SUM(total)as total 
+            ,SUM(visit) as visit
+            ,SUM(visit_all) as visit_all
             FROM dm_patient_visit
             GROUP BY cup
                         ')->queryAll();

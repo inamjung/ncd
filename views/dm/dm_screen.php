@@ -51,12 +51,14 @@ echo \kartik\grid\GridView::widget([
         [
             'label'=>'เป้าหมาย(คน)',
             'attribute'=>'target',
+             'format'=>'integer',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],
         ],
         [
             'label'=>'ผลงาน (คน)',
             'attribute'=>'result',
+            'format'=>'integer',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],
         ],

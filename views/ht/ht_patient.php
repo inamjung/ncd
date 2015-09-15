@@ -51,6 +51,7 @@ echo \kartik\grid\GridView::widget([
         [
             'label'=>'จำนวน(คน) ',
             'attribute'=>'total',
+            'format'=>'integer',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],
         ],

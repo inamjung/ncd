@@ -19,9 +19,9 @@ class HtController extends Controller {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-             SELECT distcode, cup ,FORMAT(SUM(target),0)as target 
-                ,Format(SUM(result),0) as result,SUM(normal)as normal
-                ,FORMAT(SUM(risk),0) as risk,FORMAT(SUM(riskhigh),0) as riskhigh
+             SELECT distcode, cup ,SUM(target)as target 
+                ,SUM(result) as result,SUM(normal)as normal
+                ,SUM(risk) as risk,SUM(riskhigh) as riskhigh
                 ,ROUND((SUM(result) * 100)/SUM(target),2) as total
                 FROM ht_screen
                 GROUP BY cup
@@ -71,8 +71,8 @@ class HtController extends Controller {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-           SELECT distcode, cup ,FORMAT(SUM(target),0)as target 
-            ,Format(SUM(result),0) as result
+           SELECT distcode, cup ,SUM(target)as target 
+            ,SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM ht_screen
             GROUP BY cup
@@ -121,12 +121,12 @@ class HtController extends Controller {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-           SELECT distcode, cup ,FORMAT(SUM(target),0)as target , Format(SUM(result),0) as result
+           SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
-            ,FORMAT(SUM(hdl),0) as hdl,FORMAT(SUM(hdl_r),0) as hdl_r
-            ,FORMAT(SUM(ldl),0) as ldl,FORMAT(SUM(ldl_r),0) as ldl_r
-            ,FORMAT(SUM(chol),0) as chol,FORMAT(SUM(chol_r),0) as chol_r
-            ,FORMAT(SUM(tg),0) as tg,FORMAT(SUM(tg_r),0) as tg_r
+            ,SUM(hdl) as hdl,SUM(hdl_r) as hdl_r
+            ,SUM(ldl) as ldl,SUM(ldl_r) as ldl_r
+            ,SUM(chol) as chol,SUM(chol_r) as chol_r
+            ,SUM(tg) as tg,SUM(tg_r) as tg_r
             FROM ht_lipid
             GROUP BY cup
                         ')->queryAll();
@@ -178,11 +178,11 @@ class HtController extends Controller {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-           SELECT distcode, cup ,FORMAT(SUM(target),0)as target 
-            ,Format(SUM(result),0) as result
+           SELECT distcode, cup ,SUM(target)as target 
+            ,SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
-            ,FORMAT(SUM(r1),0) as r1,FORMAT(SUM(r2),0) as r2
-            ,FORMAT(SUM(r3),0) as r3
+            ,SUM(r1) as r1,SUM(r2) as r2
+            ,SUM(r3) as r3
             FROM ht_fbs
             GROUP BY cup
                         ')->queryAll();
@@ -232,8 +232,8 @@ class HtController extends Controller {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-          SELECT distcode, cup ,FORMAT(SUM(target),0)as target 
-            ,Format(SUM(result),0) as result
+          SELECT distcode, cup ,SUM(target)as target 
+            ,SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM ht_control
             GROUP BY cup
@@ -282,8 +282,8 @@ class HtController extends Controller {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-          SELECT distcode, cup ,FORMAT(SUM(target),0)as target 
-            ,Format(SUM(result),0) as result
+          SELECT distcode, cup ,SUM(target) as target 
+            ,SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM ht_dm
             GROUP BY cup
@@ -332,8 +332,8 @@ class HtController extends Controller {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-          SELECT distcode, cup ,FORMAT(SUM(target),0)as target 
-            ,Format(SUM(result),0) as result
+          SELECT distcode, cup ,SUM(target) as target 
+            ,SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM ht_stroke
             GROUP BY cup
@@ -382,8 +382,8 @@ class HtController extends Controller {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-          SELECT distcode, cup ,FORMAT(SUM(target),0)as target 
-            ,Format(SUM(result),0) as result
+          SELECT distcode, cup ,SUM(target) as target 
+            ,SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM ht_heart
             GROUP BY cup
@@ -432,8 +432,8 @@ class HtController extends Controller {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-          SELECT distcode, cup ,FORMAT(SUM(target),0)as target 
-            ,Format(SUM(result),0) as result
+          SELECT distcode, cup ,SUM(target) as target 
+            ,SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM ht_kidney
             GROUP BY cup
@@ -482,8 +482,8 @@ class HtController extends Controller {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-          SELECT distcode, cup ,FORMAT(SUM(target),0)as target 
-            ,Format(SUM(result),0) as result
+          SELECT distcode, cup ,SUM(target) as target 
+            ,SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM ht_preht
             GROUP BY cup
@@ -532,7 +532,7 @@ class HtController extends Controller {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-         SELECT distcode, cup ,FORMAT(SUM(total),0)as total
+         SELECT distcode, cup ,SUM(total) as total
             FROM ht_patient
             GROUP BY cup
                         ')->queryAll();
@@ -578,9 +578,9 @@ class HtController extends Controller {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand('
-       SELECT distcode, cup ,FORMAT(SUM(total),0)as total
-        ,FORMAT(SUM(visit),0)as visit
-        ,FORMAT(SUM(visit_all),0)as visit_all
+       SELECT distcode, cup ,SUM(total) as total
+        ,SUM(visit) as visit
+        ,SUM(visit_all)as visit_all
         FROM ht_patient_visit
         GROUP BY cup
                         ')->queryAll();
