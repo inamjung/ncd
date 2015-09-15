@@ -14,7 +14,7 @@ use yii\widgets\Pjax;
 
 $this->params['breadcrumbs'][]=$this->title;
 ?>
-<div class="well">    
+<div class="alert alert-success" role="alert">      
 <h3><span class="label label-success">ระบบสารสนเทศผู้ป่วยโรคความดันโลหิตสูง ปี 2558</span></h3>
 
 </div>

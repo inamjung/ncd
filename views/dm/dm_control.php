@@ -13,7 +13,7 @@ use yii\widgets\Pjax;
 
 $this->params['breadcrumbs'][]=$this->title;
 ?>
-<div class="well">    
+<div class="alert alert-info" role="alert">     
 <h3><span class="label label-info">ระบบสารสนเทศผู้ป่วยโรคเบาหวาน ปี 2558</span></h3>
 
 </div>
@@ -83,17 +83,19 @@ echo \kartik\grid\GridView::widget([
                 'type'=>'column',
                 'name'=>'เป้าหมาย',
                 'data'=>$target,
+                
             ],
             [
                 'type'=>'column',
                 'name'=>'ผลงาน',
                 'data'=>$result,
+                 
             ],
             [
                 'type'=>'column',
                 'color'=>'red',
                 'name'=>'ร้อยละ',
-                'data'=>$total,
+                
             ],
            
             

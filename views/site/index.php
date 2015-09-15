@@ -8,7 +8,7 @@ use yii\helpers\Html;
 <div class="site-index">
 
     <div class="text-center">
-        <i class="glyphicon glyphicon-stats" style="font-size:10em;"></i>
+        <i class="glyphicon glyphicon-stats" style="font-size:30em;"></i>
         <h1>ระบบสารสนเทศผู้ป่วยโรคเบาหวานความดัน</h1>
 
         <p class="lead">จังหวัดพิษณุโลก</p>
