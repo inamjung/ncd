@@ -1,5 +1,5 @@
 <?php
-$this->title = 'HT รายใหม่จากกลุ่ม PreHT ปี 2558';
+//$this->title = 'HT รายใหม่จากกลุ่ม PreHT ปี 2558';
 $this->params['breadcrumbs'][] = ['label' => 'HT รายใหม่จากกลุ่ม PreHT', 'url' => ['ht/htpreht']];
 
 $this->params['breadcrumbs'][]=$this->title;
@@ -17,6 +17,8 @@ use yii\data\ArrayDataProvider;
 use app\models\Repairs;
 
 ?>
+
+<h4><span class="label label-info">HT รายใหม่จากกลุ่ม PreHT <?php echo $byear; ?></span></h4>
 <?php 
 function filter($col) {
     $filterresult = Yii::$app->request->getQueryParam('filterresult', '');

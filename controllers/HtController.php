@@ -15,17 +15,17 @@ class HtController extends Controller {
 
     public $enableCsrfValidation = false;
 
-    public function actionHtscreen() {
+    public function actionHtscreen($byear=2558) {
 
         $connection = Yii::$app->db;
-        $data = $connection->createCommand('
+        $data = $connection->createCommand("
              SELECT distcode, cup ,SUM(target)as target 
                 ,SUM(result) as result,SUM(normal)as normal
                 ,SUM(risk) as risk,SUM(riskhigh) as riskhigh
                 ,ROUND((SUM(result) * 100)/SUM(target),2) as total
-                FROM ht_screen
+                FROM ht_screen where byear= '$byear'
                 GROUP BY cup
-                        ')->queryAll();
+                        ")->queryAll();
         //เตรียมข้อมูลส่งให้กราฟ
         for ($i = 0; $i < sizeof($data); $i++) {
             $cup[] = $data[$i]['cup'];
@@ -39,19 +39,19 @@ class HtController extends Controller {
         ]);
         return $this->render('ht_screen', [
                     'dataProvider' => $dataProvider,
-                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total
+                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total,'byear' => $byear,
         ]);
     }
 
-    public function actionIndivhtscreen($cup = null) {
+    public function actionIndivhtscreen($cup = null,$byear=nul) {
 
         $sql = "SELECT distcode, cup,hospname ,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result,SUM(normal)as normal
                 ,FORMAT(SUM(risk),0) as risk,FORMAT(SUM(riskhigh),0) as riskhigh
                 ,ROUND((SUM(result) * 100)/SUM(target),2) as total
                 FROM ht_screen
-            WHERE cup='$cup'
-            GROUP BY hospcode";
+                WHERE byear='$byear' and cup='$cup'
+                GROUP BY hospcode";
 
         $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
         try {
@@ -64,19 +64,20 @@ class HtController extends Controller {
                     'rawData' => $rawData,
                     'sql' => $sql,
                     'cup' => $cup,
+                    'byear'=>$byear,
         ]);
     }
     
-     public function actionHtcreatinin() {
+     public function actionHtcreatinin($byear=2558) {
 
         $connection = Yii::$app->db;
-        $data = $connection->createCommand('
+        $data = $connection->createCommand("
            SELECT distcode, cup ,SUM(target)as target 
             ,SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
-            FROM ht_screen
+            FROM ht_screen where byear= '$byear'
             GROUP BY cup
-                        ')->queryAll();
+                        ")->queryAll();
         //เตรียมข้อมูลส่งให้กราฟ
         for ($i = 0; $i < sizeof($data); $i++) {
             $cup[] = $data[$i]['cup'];
@@ -90,17 +91,18 @@ class HtController extends Controller {
         ]);
         return $this->render('ht_creatinin', [
                     'dataProvider' => $dataProvider,
-                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total
+                    'cup' => $cup, 'target' => $target,
+                'result' => $result, 'total' => $total,'byear' => $byear,       
         ]);
     }
 
-    public function actionIndivhtcreatinin($cup = null) {
+    public function actionIndivhtcreatinin($cup = null,$byear=nul) {
 
         $sql = "SELECT distcode, cup,hospname ,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
                 ,ROUND((SUM(result) * 100)/SUM(target),2) as total
                 FROM ht_screen
-                WHERE cup='$cup'
+                WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
 
         $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
@@ -114,22 +116,23 @@ class HtController extends Controller {
                     'rawData' => $rawData,
                     'sql' => $sql,
                     'cup' => $cup,
+                    'byear'=>$byear,
         ]);
     }
     
-    public function actionHtlipid() {
+    public function actionHtlipid($byear=2558) {
 
         $connection = Yii::$app->db;
-        $data = $connection->createCommand('
+        $data = $connection->createCommand("
            SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             ,SUM(hdl) as hdl,SUM(hdl_r) as hdl_r
             ,SUM(ldl) as ldl,SUM(ldl_r) as ldl_r
             ,SUM(chol) as chol,SUM(chol_r) as chol_r
             ,SUM(tg) as tg,SUM(tg_r) as tg_r
-            FROM ht_lipid
+            FROM ht_lipid where byear= '$byear'
             GROUP BY cup
-                        ')->queryAll();
+                        ")->queryAll();
         //เตรียมข้อมูลส่งให้กราฟ
         for ($i = 0; $i < sizeof($data); $i++) {
             $cup[] = $data[$i]['cup'];
@@ -143,11 +146,12 @@ class HtController extends Controller {
         ]);
         return $this->render('ht_lipid', [
                     'dataProvider' => $dataProvider,
-                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total
+                    'cup' => $cup, 'target' => $target, 
+                'result' => $result, 'total' => $total,'byear' => $byear, 
         ]);
     }
 
-    public function actionIndivhtlipid($cup = null) {
+    public function actionIndivhtlipid($cup = null,$byear=nul) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
@@ -157,7 +161,7 @@ class HtController extends Controller {
                 ,FORMAT(SUM(chol),0) as chol,FORMAT(SUM(chol_r),0) as chol_r
                 ,FORMAT(SUM(tg),0) as tg,FORMAT(SUM(tg_r),0) as tg_r
                 FROM ht_lipid
-                WHERE cup='$cup'
+                WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
 
         $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
@@ -171,21 +175,22 @@ class HtController extends Controller {
                     'rawData' => $rawData,
                     'sql' => $sql,
                     'cup' => $cup,
+                    'byear'=>$byear,
         ]);
     }
     
-    public function actionHtfbs() {
+    public function actionHtfbs($byear=2558) {
 
         $connection = Yii::$app->db;
-        $data = $connection->createCommand('
+        $data = $connection->createCommand("
            SELECT distcode, cup ,SUM(target)as target 
             ,SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             ,SUM(r1) as r1,SUM(r2) as r2
             ,SUM(r3) as r3
-            FROM ht_fbs
+            FROM ht_fbs where byear= '$byear'
             GROUP BY cup
-                        ')->queryAll();
+                        ")->queryAll();
         //เตรียมข้อมูลส่งให้กราฟ
         for ($i = 0; $i < sizeof($data); $i++) {
             $cup[] = $data[$i]['cup'];
@@ -199,11 +204,12 @@ class HtController extends Controller {
         ]);
         return $this->render('ht_fbs', [
                     'dataProvider' => $dataProvider,
-                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total
+                    'cup' => $cup, 'target' => $target, 
+            'result' => $result, 'total' => $total,'byear'=>$byear,
         ]);
     }
 
-    public function actionIndivhtfbs($cup = null) {
+    public function actionIndivhtfbs($cup = null,$byear=nul) {
 
         $sql = "SELECT distcode, cup,hospname ,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
@@ -211,7 +217,7 @@ class HtController extends Controller {
                 ,FORMAT(SUM(r1),0) as r1,FORMAT(SUM(r2),0) as r2
                 ,FORMAT(SUM(r3),0) as r3
                 FROM ht_fbs
-                WHERE cup='$cup'
+                WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
 
         $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
@@ -225,19 +231,20 @@ class HtController extends Controller {
                     'rawData' => $rawData,
                     'sql' => $sql,
                     'cup' => $cup,
+                    'byear'=>$byear,
         ]);
     }
     
-    public function actionHtcontrol() {
+    public function actionHtcontrol($byear=2558) {
 
         $connection = Yii::$app->db;
-        $data = $connection->createCommand('
+        $data = $connection->createCommand("
           SELECT distcode, cup ,SUM(target)as target 
             ,SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
-            FROM ht_control
+            FROM ht_control where byear= '$byear'
             GROUP BY cup
-                        ')->queryAll();
+                        ")->queryAll();
         //เตรียมข้อมูลส่งให้กราฟ
         for ($i = 0; $i < sizeof($data); $i++) {
             $cup[] = $data[$i]['cup'];
@@ -251,17 +258,18 @@ class HtController extends Controller {
         ]);
         return $this->render('ht_control', [
                     'dataProvider' => $dataProvider,
-                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total
+                    'cup' => $cup, 'target' => $target, 
+            'result' => $result, 'total' => $total,'byear'=>$byear,
         ]);
     }
 
-    public function actionIndivhtcontrol($cup = null) {
+    public function actionIndivhtcontrol($cup = null,$byear=nul) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
                 ,ROUND((SUM(result) * 100)/SUM(target),2) as total
                 FROM ht_control
-                WHERE cup='$cup'
+                WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
 
         $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
@@ -275,19 +283,20 @@ class HtController extends Controller {
                     'rawData' => $rawData,
                     'sql' => $sql,
                     'cup' => $cup,
+                    'byear'=>$byear,
         ]);
     }
     
-    public function actionHtdm() {
+    public function actionHtdm($byear=2558) {
 
         $connection = Yii::$app->db;
-        $data = $connection->createCommand('
+        $data = $connection->createCommand("
           SELECT distcode, cup ,SUM(target) as target 
             ,SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
-            FROM ht_dm
+            FROM ht_dm where byear= '$byear'
             GROUP BY cup
-                        ')->queryAll();
+                        ")->queryAll();
         //เตรียมข้อมูลส่งให้กราฟ
         for ($i = 0; $i < sizeof($data); $i++) {
             $cup[] = $data[$i]['cup'];
@@ -301,17 +310,18 @@ class HtController extends Controller {
         ]);
         return $this->render('ht_dm', [
                     'dataProvider' => $dataProvider,
-                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total
+                    'cup' => $cup, 'target' => $target, 
+                    'result' => $result, 'total' => $total,'byear' => $byear,
         ]);
     }
 
-    public function actionIndivhtdm($cup = null) {
+    public function actionIndivhtdm($cup = null,$byear=null) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
                 ,ROUND((SUM(result) * 100)/SUM(target),2) as total
                 FROM ht_dm
-                WHERE cup='$cup'
+                WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
 
         $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
@@ -325,19 +335,20 @@ class HtController extends Controller {
                     'rawData' => $rawData,
                     'sql' => $sql,
                     'cup' => $cup,
+                    'byear'=>$byear,
         ]);
     }
     
-    public function actionHtstroke() {
+    public function actionHtstroke($byear=2558) {
 
         $connection = Yii::$app->db;
-        $data = $connection->createCommand('
+        $data = $connection->createCommand("
           SELECT distcode, cup ,SUM(target) as target 
             ,SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
-            FROM ht_stroke
+            FROM ht_stroke where byear= '$byear'
             GROUP BY cup
-                        ')->queryAll();
+                        ")->queryAll();
         //เตรียมข้อมูลส่งให้กราฟ
         for ($i = 0; $i < sizeof($data); $i++) {
             $cup[] = $data[$i]['cup'];
@@ -351,17 +362,18 @@ class HtController extends Controller {
         ]);
         return $this->render('ht_stroke', [
                     'dataProvider' => $dataProvider,
-                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total
+                    'cup' => $cup, 'target' => $target, 
+                    'result' => $result, 'total' => $total,'byear' => $byear,
         ]);
     }
 
-    public function actionIndivhtstroke($cup = null) {
+    public function actionIndivhtstroke($cup = null,$byear=null) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
                 ,ROUND((SUM(result) * 100)/SUM(target),2) as total
                 FROM ht_stroke
-                WHERE cup='$cup'
+                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
 
         $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
@@ -375,19 +387,20 @@ class HtController extends Controller {
                     'rawData' => $rawData,
                     'sql' => $sql,
                     'cup' => $cup,
+                    'byear'=>$byear,
         ]);
     }
     
-    public function actionHtheart() {
+    public function actionHtheart($byear=2558) {
 
         $connection = Yii::$app->db;
-        $data = $connection->createCommand('
+        $data = $connection->createCommand("
           SELECT distcode, cup ,SUM(target) as target 
             ,SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
-            FROM ht_heart
+            FROM ht_heart where byear= '$byear'
             GROUP BY cup
-                        ')->queryAll();
+                        ")->queryAll();
         //เตรียมข้อมูลส่งให้กราฟ
         for ($i = 0; $i < sizeof($data); $i++) {
             $cup[] = $data[$i]['cup'];
@@ -401,17 +414,18 @@ class HtController extends Controller {
         ]);
         return $this->render('ht_heart', [
                     'dataProvider' => $dataProvider,
-                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total
+                    'cup' => $cup, 'target' => $target, 
+                    'result' => $result, 'total' => $total,'byear' => $byear,
         ]);
     }
 
-    public function actionIndivhtheart($cup = null) {
+    public function actionIndivhtheart($cup = null,$byear=null) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
                 ,ROUND((SUM(result) * 100)/SUM(target),2) as total
                 FROM ht_heart
-                WHERE cup='$cup'
+                WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
 
         $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
@@ -425,19 +439,20 @@ class HtController extends Controller {
                     'rawData' => $rawData,
                     'sql' => $sql,
                     'cup' => $cup,
+                    'byear'=>$byear,
         ]);
     }
     
-    public function actionHtkidney() {
+    public function actionHtkidney($byear=2558) {
 
         $connection = Yii::$app->db;
-        $data = $connection->createCommand('
+        $data = $connection->createCommand("
           SELECT distcode, cup ,SUM(target) as target 
             ,SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
-            FROM ht_kidney
+            FROM ht_kidney where byear= '$byear'
             GROUP BY cup
-                        ')->queryAll();
+                        ")->queryAll();
         //เตรียมข้อมูลส่งให้กราฟ
         for ($i = 0; $i < sizeof($data); $i++) {
             $cup[] = $data[$i]['cup'];
@@ -451,11 +466,11 @@ class HtController extends Controller {
         ]);
         return $this->render('ht_kidney', [
                     'dataProvider' => $dataProvider,
-                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total
+                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total,'byear'=>$byear,
         ]);
     }
 
-    public function actionIndivhtkidney($cup = null) {
+    public function actionIndivhtkidney($cup = null,$byear=null) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
@@ -475,19 +490,20 @@ class HtController extends Controller {
                     'rawData' => $rawData,
                     'sql' => $sql,
                     'cup' => $cup,
+                    'byear'=>$byear,
         ]);
     }
     
-    public function actionHtpreht() {
+    public function actionHtpreht($byear=2558) {
 
         $connection = Yii::$app->db;
-        $data = $connection->createCommand('
+        $data = $connection->createCommand("
           SELECT distcode, cup ,SUM(target) as target 
             ,SUM(result) as result
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
-            FROM ht_preht
+            FROM ht_preht where byear= '$byear'
             GROUP BY cup
-                        ')->queryAll();
+                        ")->queryAll();
         //เตรียมข้อมูลส่งให้กราฟ
         for ($i = 0; $i < sizeof($data); $i++) {
             $cup[] = $data[$i]['cup'];
@@ -501,17 +517,17 @@ class HtController extends Controller {
         ]);
         return $this->render('ht_preht', [
                     'dataProvider' => $dataProvider,
-                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total
+                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total,'byear' => $byear,
         ]);
     }
 
-    public function actionIndivhtpreht($cup = null) {
+    public function actionIndivhtpreht($cup = null,$byear=null) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
                 ,ROUND((SUM(result) * 100)/SUM(target),2) as total
                 FROM ht_preht
-                WHERE cup='$cup'
+                WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
 
         $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
@@ -525,17 +541,18 @@ class HtController extends Controller {
                     'rawData' => $rawData,
                     'sql' => $sql,
                     'cup' => $cup,
+                    'byear'=>$byear,    
         ]);
     }
     
-    public function actionHtpatient() {
+    public function actionHtpatient($byear=2558) {
 
         $connection = Yii::$app->db;
-        $data = $connection->createCommand('
+        $data = $connection->createCommand("
          SELECT distcode, cup ,SUM(total) as total
-            FROM ht_patient
+            FROM ht_patient  where byear= '$byear'
             GROUP BY cup
-                        ')->queryAll();
+                        ")->queryAll();
         //เตรียมข้อมูลส่งให้กราฟ
         for ($i = 0; $i < sizeof($data); $i++) {
             $cup[] = $data[$i]['cup'];
@@ -549,15 +566,15 @@ class HtController extends Controller {
         ]);
         return $this->render('ht_patient', [
                     'dataProvider' => $dataProvider,
-                    'cup' => $cup, 'total' => $total
+                    'cup' => $cup, 'total' => $total,'byear' => $byear,
         ]);
     }
 
-    public function actionIndivhtpatient($cup = null) {
+    public function actionIndivhtpatient($cup = null,$byear=null) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(total),0)as total 
                 FROM ht_patient
-                WHERE cup='$cup'
+                WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
 
         $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
@@ -571,19 +588,20 @@ class HtController extends Controller {
                     'rawData' => $rawData,
                     'sql' => $sql,
                     'cup' => $cup,
+                    'byear' => $byear,
         ]);
     }
     
-    public function actionHtpatientvisit() {
+    public function actionHtpatientvisit($byear=2558) {
 
         $connection = Yii::$app->db;
-        $data = $connection->createCommand('
+        $data = $connection->createCommand("
        SELECT distcode, cup ,SUM(total) as total
         ,SUM(visit) as visit
         ,SUM(visit_all)as visit_all
-        FROM ht_patient_visit
+        FROM ht_patient_visit  where byear= '$byear'
         GROUP BY cup
-                        ')->queryAll();
+                        ")->queryAll();
         //เตรียมข้อมูลส่งให้กราฟ
         for ($i = 0; $i < sizeof($data); $i++) {
             $cup[] = $data[$i]['cup'];
@@ -597,17 +615,18 @@ class HtController extends Controller {
         ]);
         return $this->render('ht_visit', [
                     'dataProvider' => $dataProvider,
-                    'cup' => $cup, 'total' => $total,'visit_all'=>$visit_all,'visit'=>$visit
+                    'cup' => $cup, 'total' => $total,
+                'visit_all'=>$visit_all,'visit'=>$visit,'byear' => $byear,
         ]);
     }
 
-    public function actionIndivhtpatientvisit($cup = null) {
+    public function actionIndivhtpatientvisit($cup = null,$byear=null) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(total),0)as total
                 ,FORMAT(SUM(visit),0)as visit
                 ,FORMAT(SUM(visit_all),0)as visit_all
                 FROM ht_patient_visit
-                WHERE cup='$cup'
+               WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
 
         $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
@@ -621,6 +640,7 @@ class HtController extends Controller {
                     'rawData' => $rawData,
                     'sql' => $sql,
                     'cup' => $cup,
+                    'byear'=>$byear,
         ]);
     }
 

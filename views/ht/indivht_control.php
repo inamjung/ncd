@@ -1,5 +1,5 @@
 <?php
-$this->title = 'HT ที่ควบคุมได้ 2 ครั้งสุดท้าย ปี 2558';
+//$this->title = 'HT ที่ควบคุมได้ 2 ครั้งสุดท้าย ปี 2558';
 $this->params['breadcrumbs'][] = ['label' => 'HT ที่ควบคุมได้ 2 ครั้งสุดท้าย', 'url' => ['ht/htcontrol']];
 
 $this->params['breadcrumbs'][]=$this->title;
@@ -17,6 +17,7 @@ use yii\data\ArrayDataProvider;
 use app\models\Repairs;
 
 ?>
+<h4><span class="label label-info">HT ที่ควบคุมได้ 2 ครั้งสุดท้าย <?php echo $byear; ?></span></h4>
 <?php 
 function filter($col) {
     $filterresult = Yii::$app->request->getQueryParam('filterresult', '');
@@ -87,7 +88,7 @@ $dataProvider = new ArrayDataProvider([
            //'showPageSummary' => true,
             'panel' => [           
                 'type' => GridView::TYPE_SUCCESS,
-                'heading' => 'HT ที่ควบคุมได้ 2 ครั้งสุดท้าย ปี 2558',
+                'heading' => 'HT ที่ควบคุมได้ 2 ครั้งสุดท้าย',
 
                         ],
                     ]);

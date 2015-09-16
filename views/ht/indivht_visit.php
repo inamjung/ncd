@@ -17,6 +17,8 @@ use yii\data\ArrayDataProvider;
 use app\models\Repairs;
 
 ?>
+
+<h4><span class="label label-info">HT รับบริการที่สถานบริการ <?php echo $byear; ?></span></h4>
 <?php 
 function filter($col) {
     $filterresult = Yii::$app->request->getQueryParam('filterresult', '');
@@ -88,7 +90,7 @@ $dataProvider = new ArrayDataProvider([
            //'showPageSummary' => true,
             'panel' => [           
                 'type' => GridView::TYPE_SUCCESS,
-                'heading' => 'HT รับบริการที่สถานบริการ ปี 2558',
+                'heading' => 'HT รับบริการที่สถานบริการ',
 
                         ],
                     ]);

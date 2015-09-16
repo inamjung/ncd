@@ -1,5 +1,5 @@
 <?php
-$this->title = 'HT ได้รับการตรวจน้ำตาล ปี 2558';
+//$this->title = 'HT ได้รับการตรวจน้ำตาล ปี 2558';
 $this->params['breadcrumbs'][] = ['label' => 'HT ได้รับการตรวจน้ำตาล', 'url' => ['ht/htfbs']];
 
 $this->params['breadcrumbs'][]=$this->title;
@@ -17,6 +17,8 @@ use yii\data\ArrayDataProvider;
 use app\models\Repairs;
 
 ?>
+
+<h4><span class="label label-info">HT ได้รับการตรวจน้ำตาล <?php echo $byear; ?></span></h4>
 <?php 
 function filter($col) {
     $filterresult = Yii::$app->request->getQueryParam('filterresult', '');
@@ -87,7 +89,7 @@ $dataProvider = new ArrayDataProvider([
            //'showPageSummary' => true,
             'panel' => [           
                 'type' => GridView::TYPE_SUCCESS,
-                'heading' => 'HT ได้รับการตรวจน้ำตาล ปี 2558',
+                'heading' => 'HT ได้รับการตรวจน้ำตาล',
 
                         ],
                     ]);

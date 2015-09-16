@@ -38,7 +38,8 @@ class DmController extends Controller {
         ]);
         return $this->render('dm_screen', [
                     'dataProvider' => $dataProvider,
-                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total,'byear' => $byear,
+                    'cup' => $cup, 'target' => $target, 'result' => $result, 
+                    'total' => $total,'byear' => $byear,
         ]);
     }    
 
