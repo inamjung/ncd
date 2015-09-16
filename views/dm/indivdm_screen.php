@@ -1,6 +1,6 @@
 <?php
-$this->title = 'DM คัดกรองอายุ35ปีขึ้นไป ปี 2558';
-$this->params['breadcrumbs'][] = ['label' => 'DM คัดกรองอายุ35ปีขึ้นไป', 'url' => ['dm/dmhba1c']];
+$this->title = 'DM คัดกรองอายุ35ปีขึ้นไป แต่ละสถานบริการ ';
+$this->params['breadcrumbs'][] = ['label' => 'DM คัดกรองอายุ35ปีขึ้นไป', 'url' => ['dm/dmscreen']];
 
 $this->params['breadcrumbs'][]=$this->title;
 //use yii\grid\GridView;
@@ -17,6 +17,7 @@ use yii\data\ArrayDataProvider;
 use app\models\Repairs;
 
 ?>
+<h4><span class="label label-info">DM คัดกรองอายุ35ปีขึ้นไป แต่ละสถานบริการ ปี <?php echo $byear; ?></span></h4>
 <?php 
 function filter($col) {
     $filterresult = Yii::$app->request->getQueryParam('filterresult', '');
@@ -87,8 +88,7 @@ $dataProvider = new ArrayDataProvider([
            //'showPageSummary' => true,
             'panel' => [           
                 'type' => GridView::TYPE_INFO,
-                'heading' => 'DM คัดกรองอายุ35ปีขึ้นไป ปี 2558',
-
+                'heading' => 'DM คัดกรองอายุ35ปีขึ้นไป ',                
                         ],
                     ]);
             ?>

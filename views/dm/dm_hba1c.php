@@ -16,10 +16,13 @@ use yii\widgets\Pjax;
 $this->params['breadcrumbs'][]=$this->title;
 ?>
 <div class="alert alert-info" role="alert">     
-<h3><span class="label label-info">ระบบสารสนเทศผู้ป่วยโรคเบาหวาน ปี 2558</span></h3>
-
+<h3><span class="label label-info">ระบบสารสนเทศผู้ป่วยโรคเบาหวาน ปี <?php echo $byear; ?></span></h3>
 </div>
-
+<div class="btn-group" role="group" aria-label="...">           
+     <a  class="btn btn-primary" href="<?= Url::to(['dm/dmhba1c', 'byear' => '2557']) ?>">2557</a>
+     <a  class="btn btn-info" href="<?= Url::to(['dm/dmhba1c', 'byear' => '2558']) ?>">2558</a>
+          
+</div>
 <?php Pjax::begin();?> 
 <?php
 $gridColumns = [
@@ -29,10 +32,11 @@ $gridColumns = [
             'label'=>'เครือข่ายบริการ(CUP)',
             'attribute'=>'cup',
             'format'=>'raw',
-            'value'=> function($model){
+            'value'=> function($model) use($byear){
                 return Html::a(Html::encode($model['cup']),[
                     'dm/indivdmhba1c/',
-                    'cup'=>$model['cup']
+                    'cup'=>$model['cup'],
+                    'byear'=>$byear,    
                 ]) ;
             }            
         ],         
@@ -73,7 +77,7 @@ $gridColumns = [
             'showPageSummary' => true,
             'panel' => [           
                 'type' => GridView::TYPE_SUCCESS,
-                'heading' => 'DM ได้รับการตรวจ HbA1C ปี 2558',
+                'heading' => 'DM ได้รับการตรวจ HbA1C',
 
                         ],
                     ]);
@@ -82,7 +86,7 @@ $gridColumns = [
 
 <?php echo Highcharts::widget([
     'options'=>[        
-        'title'=>['text'=>'DM ได้รับการตรวจ HbA1C ปี 2558'],
+        'title'=>['text'=>'DM ได้รับการตรวจ HbA1C'],
         'xAxis'=>[
             'categories'=>$cup
         ],
@@ -101,8 +105,7 @@ $gridColumns = [
                 'data'=>$result,
             ],
             [
-                'type'=>'column',
-                'color'=>'red',
+                'type'=>'column',                
                 'name'=>'ร้อยละ',
                 'data'=>$total,
             ],
