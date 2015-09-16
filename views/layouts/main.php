@@ -31,7 +31,7 @@ MaterialAsset::register($this);
                 'brandLabel' => '<i class="glyphicon glyphicon-stats"></i> ระบบสารสนเทศผู้ป่วยโรคเบาหวานความดัน จังหวัดพิษณุโลก',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
+                    'class' => 'navbar-success navbar-fixed-top',
                 ],
             ]);
             echo Nav::widget([
