@@ -21,20 +21,8 @@ $this->params['breadcrumbs'][]=$this->title;
 
 <?php Pjax::begin();?> 
 <?php
-echo \kartik\grid\GridView::widget([
-    'dataProvider' => $dataProvider,
-    'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
-    'responsive' => TRUE,
-    'hover' => true,
-    'floatHeader' => FALSE,
-    'panel' => [
-        'heading'=>'HT ขึ้นทะเบียน ปี 2558',
-        'before' => '',
-        'type' => \kartik\grid\GridView::TYPE_PRIMARY,
-       
-    ],
-    'columns'=>[
-        ['class'=>'yii\grid\SerialColumn'],
+$gridColumns = [
+    ['class'=>'kartik\grid\SerialColumn'],
         
        [
             'label'=>'เครือข่ายบริการ(CUP)',
@@ -47,17 +35,32 @@ echo \kartik\grid\GridView::widget([
                 ]) ;
             }            
         ],        
-        
         [
+            'class' => 'kartik\grid\DataColumn',
             'label'=>'จำนวน(คน) ',
-            'attribute'=>'total',
+            'attribute' => 'total',
             'format'=>'integer',
+            'pageSummary' => true,
+            'vAlign' => 'middle',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],
-        ],
-       ],    
-]);
-?>
+        ],        
+       ];           
+            echo GridView::widget([
+            'dataProvider' => $dataProvider,
+            'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
+            'columns' => $gridColumns,
+            'responsive' => true,
+            'hover' => true,
+            'floatHeader' => FALSE,        
+            'showPageSummary' => true,
+            'panel' => [           
+                'type' => GridView::TYPE_PRIMARY,
+                'heading' => 'HT ขึ้นทะเบียน ปี 2558',
+
+                        ],
+                    ]);
+            ?>
 <?php Pjax::end();?> 
 
 <?php echo Highcharts::widget([
