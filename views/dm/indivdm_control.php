@@ -22,7 +22,7 @@ use yii\helpers\Url;
         <span style="background-color:#00A2E8; color: white;padding: 5px">ปีงบประมาณ <?= $byear ?></span>
     </h4>
     <a class="btn  btn-success"
-       href="<?= Url::to(['dmscreen', 'cup' => $cup, 'byear' => $byear]) ?>">
+       href="<?= Url::to(['dmcontrol', 'cup' => $cup, 'byear' => $byear]) ?>">
         <i class="glyphicon glyphicon-chevron-left"> ย้อนกลับ</i>
     </a>
 </div>
