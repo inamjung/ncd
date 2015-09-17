@@ -14,10 +14,7 @@ use yii\widgets\Pjax;
 
 $this->params['breadcrumbs'][]=$this->title;
 ?>
-<div class="alert alert-success" role="alert">    
-<h3><span class="label label-success">ระบบสารสนเทศผู้ป่วยโรคความดันโลหิตสูง ปี <?php echo $byear; ?></span></h3>
 
-</div>
 <div class="btn-group" role="group" aria-label="...">
            
             <a  class="btn btn-primary" href="<?= Url::to(['ht/htcreatinin', 'byear' => '2557']) ?>">2557</a>
@@ -78,7 +75,7 @@ $gridColumns = [
             'showPageSummary' => true,
             'panel' => [           
                 'type' => GridView::TYPE_PRIMARY,
-                'heading' => 'HT ได้รับการตรวจ Creatinin ',
+                'heading' => 'HT ได้รับการตรวจ Creatinin ปีงบประมาณ '.$byear,
 
                         ],
                     ]);

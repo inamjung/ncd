@@ -15,9 +15,6 @@ use yii\widgets\Pjax;
 //$this->params['breadcrumbs'][] = ['label' => 'รายงาน', 'url' => ['main/index']];
 $this->params['breadcrumbs'][]=$this->title;
 ?>
-<div class="alert alert-info" role="alert">     
-    <h3><span class="label label-info">ระบบสารสนเทศผู้ป่วยโรคเบาหวาน ปี <?php echo $byear; ?></span></h3>
-</div>
 
 <div class="btn-group" role="group" aria-label="...">
            
@@ -79,7 +76,7 @@ $gridColumns = [
             'showPageSummary' => true,
             'panel' => [           
                 'type' => GridView::TYPE_SUCCESS,
-                'heading' => 'DM ตรวจเท้า ',
+                'heading' => 'DM ตรวจเท้า ปีงบประมาณ '.$byear
 
                         ],
                     ]);

@@ -13,15 +13,11 @@ use yii\widgets\Pjax;
 
 $this->params['breadcrumbs'][]=$this->title;
 ?>
-<div class="alert alert-info" role="alert">     
-<h3><span class="label label-info">ระบบสารสนเทศผู้ป่วยโรคเบาหวาน ปี <?php echo $byear; ?></span></h3>
 
-</div>
 <div class="btn-group" role="group" aria-label="...">
            
             <a  class="btn btn-primary" href="<?= Url::to(['dm/dmcontrol', 'byear' => '2557']) ?>">2557</a>
-            <a  class="btn btn-info" href="<?= Url::to(['dm/dmcontrol', 'byear' => '2558']) ?>">2558</a>
-          
+            <a  class="btn btn-info" href="<?= Url::to(['dm/dmcontrol', 'byear' => '2558']) ?>">2558</a>          
 </div>
 <?php Pjax::begin();?> 
 <?php
@@ -75,9 +71,9 @@ $gridColumns = [
             'floatHeader' => FALSE,        
             'showPageSummary' => true,
             'panel' => [           
-                'type' => GridView::TYPE_SUCCESS,
-                'heading' => 'DM ที่ควบคุมได้2ครั้งสุดท้าย',
-
+                'type' => GridView::TYPE_SUCCESS,               
+                'heading'=> 'DM ที่ควบคุมได้2ครั้งสุดท้าย ปีงบประมาณ '.$byear
+                 
                         ],
                     ]);
             ?>
