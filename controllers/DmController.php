@@ -20,6 +20,7 @@ class DmController extends Controller {
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
             SELECT distcode, cup ,SUM(target)as target , SUM(result)as result
+            ,SUM(normal)as normal
             ,SUM(risk)as risk,SUM(riskhigh) as riskhigh
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM dm_screen 
@@ -31,6 +32,7 @@ class DmController extends Controller {
             $target[] = $data[$i]['target'] * 1;
             $result[] = $data[$i]['result'] * 1;
             $total[] = $data[$i]['total'] * 1;
+            $normal[] = $data[$i]['normal'] * 1;
         }
 
         $dataProvider = new ArrayDataProvider([
@@ -39,13 +41,15 @@ class DmController extends Controller {
         return $this->render('dm_screen', [
                     'dataProvider' => $dataProvider,
                     'cup' => $cup, 'target' => $target, 'result' => $result, 
-                    'total' => $total,'byear' => $byear,
+                    'total' => $total,'byear' => $byear,'normal'=>$normal
         ]);
     }    
 
     public function actionIndivdmscreen($cup = null,$byear=null) {
 
-        $sql = "SELECT distcode,hospname, cup ,FORMAT(SUM(target),0)as target , Format(SUM(result),0) as result
+        $sql = "SELECT distcode,hospname, cup ,FORMAT(SUM(target),0)as target 
+            ,Format(SUM(result),0) as result
+            ,SUM(normal)as normal
             ,FORMAT(SUM(risk),0) as risk,FORMAT(SUM(riskhigh),0) as riskhigh
             ,ROUND((SUM(result) * 100)/SUM(target),2) as total
             FROM dm_screen
@@ -72,6 +76,7 @@ class DmController extends Controller {
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
              SELECT distcode, cup ,SUM(target)as target , SUM(result)as result
+                ,SUM(result_7)as result_7
                 ,ROUND((SUM(result) * 100)/SUM(target),2) as total
                 FROM dm_hba1c
                 where byear= '$byear'
@@ -82,6 +87,7 @@ class DmController extends Controller {
             $cup[] = $data[$i]['cup'];
             $target[] = $data[$i]['target'] * 1;
             $result[] = $data[$i]['result'] * 1;
+            $result_7[] = $data[$i]['result_7'] * 1;
             $total[] = $data[$i]['total'] * 1;
         }
 
@@ -90,17 +96,19 @@ class DmController extends Controller {
         ]);
         return $this->render('dm_hba1c', [
                     'dataProvider' => $dataProvider,
-                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total,'byear' => $byear,
+                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total
+                ,'byear' => $byear,'result_7'=>$result_7
         ]);
     }
 
     public function actionIndivdmhba1c($cup = null,$byear=nul) {
 
         $sql = "SELECT distcode,hospname, cup ,SUM(target)as target , SUM(result)as result
+                ,SUM(result_7) as result_7
                 ,ROUND((SUM(result) * 100)/SUM(target),2) as total
                 FROM dm_hba1c
                 WHERE byear='$byear' and cup='$cup'
-                GROUP BY hospcode";
+                GROUP BY cup";
 
         $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
         try {
@@ -114,6 +122,7 @@ class DmController extends Controller {
                     'sql' => $sql,
                     'byear'=>$byear,
                     'cup' => $cup,
+                    
         ]);
     }
 public function actionDmlipid($byear=2558) {

@@ -60,7 +60,7 @@ $dataProvider = new ArrayDataProvider([
             'headerOptions' => ['class'=>'text-center'],            
         ],
         [
-            'label'=>'จำนวนเป้าหมาย(คน)',
+            'label'=>'จำนวนผู้ป่วย(คน)',
             'attribute'=>'total',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],

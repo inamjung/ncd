@@ -71,6 +71,24 @@ $dataProvider = new ArrayDataProvider([
             'contentOptions' => ['class'=>'text-center'],
         ],
         [
+            'label'=>'น้ำตาล<100(คน)',
+            'attribute'=>'normal',
+            'headerOptions' => ['class'=>'text-center'],
+            'contentOptions' => ['class'=>'text-center'],
+        ],
+        [
+            'label'=>'น้ำตาล100-125(คน)',
+            'attribute'=>'risk',
+            'headerOptions' => ['class'=>'text-center'],
+            'contentOptions' => ['class'=>'text-center'],
+        ],
+        [
+            'label'=>'น้ำตาล>=126(คน)',
+            'attribute'=>'riskhigh',
+            'headerOptions' => ['class'=>'text-center'],
+            'contentOptions' => ['class'=>'text-center'],
+        ],
+        [
             'label'=>'ร้อยละ ',
             'attribute'=>'total',
             'headerOptions' => ['class'=>'text-center'],

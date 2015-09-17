@@ -62,12 +62,21 @@ $dataProvider = new ArrayDataProvider([
         [
             'label'=>'เป้าหมาย(คน)',
             'attribute'=>'target',
+            'format'=>'integer',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],
         ],
         [
             'label'=>'ผลงาน (คน)',
             'attribute'=>'result',
+            'format'=>'integer',
+            'headerOptions' => ['class'=>'text-center'],
+            'contentOptions' => ['class'=>'text-center'],
+        ],
+        [
+            'label'=>'Hba1c<7 (คน)',
+            'attribute'=>'result_7',
+            'format'=>'integer',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],
         ],

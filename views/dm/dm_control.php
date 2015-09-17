@@ -42,7 +42,7 @@ $gridColumns = [
         [
             'class' => 'kartik\grid\DataColumn',
             'attribute' => 'target',
-            'label'=>'เป้าหมาย(คน)',
+            'label'=>'จำนวนตรวจน้ำตาล(คน)',
             'format'=>'integer',
             'pageSummary' => true,
             'vAlign' => 'middle',
@@ -51,7 +51,7 @@ $gridColumns = [
         ],
         [
             'class' => 'kartik\grid\DataColumn',
-            'label'=>'ผลงาน (คน)',
+            'label'=>'ควบคุมได้ (<=7)(คน)',
             'attribute' => 'result',
             'format'=>'integer',
             'pageSummary' => true,

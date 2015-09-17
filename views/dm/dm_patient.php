@@ -44,7 +44,7 @@ $gridColumns = [
         [
             'class' => 'kartik\grid\DataColumn',
             'attribute' => 'total',
-            'label'=>'จำนวน(คน)',
+            'label'=>'จำนวนผู้ป่วย(คน)',
             'format'=>'integer',
             'pageSummary' => true,
             'vAlign' => 'middle',

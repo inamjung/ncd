@@ -71,6 +71,57 @@ $dataProvider = new ArrayDataProvider([
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],
         ],
+        
+        
+        [
+            'label'=>'HDL(คน)',
+            'attribute'=>'hdl',
+            'headerOptions' => ['class'=>'text-center'],
+            'contentOptions' => ['class'=>'text-center'],
+        ],
+        [
+            'label'=>'HDL>50mg/dl(คน)',
+            'attribute'=>'hdl_r',
+            'headerOptions' => ['class'=>'text-center'],
+            'contentOptions' => ['class'=>'text-center'],
+        ],
+        [
+            'label'=>'LDL(คน)',
+            'attribute'=>'ldl',
+            'headerOptions' => ['class'=>'text-center'],
+            'contentOptions' => ['class'=>'text-center'],
+        ],
+        [
+            'label'=>'LDL<100mg/dl (คน)',
+            'attribute'=>'ldl_r',
+            'headerOptions' => ['class'=>'text-center'],
+            'contentOptions' => ['class'=>'text-center'],
+        ],
+        [
+            'label'=>'Cholesterol(คน)',
+            'attribute'=>'chol',
+            'headerOptions' => ['class'=>'text-center'],
+            'contentOptions' => ['class'=>'text-center'],
+        ],
+        [
+            'label'=>'Cholesterol<200mg/dl(คน)',
+            'attribute'=>'chol_r',
+            'headerOptions' => ['class'=>'text-center'],
+            'contentOptions' => ['class'=>'text-center'],
+        ],
+        [
+            'label'=>'Triglyceride(คน)',
+            'attribute'=>'tg',
+            'headerOptions' => ['class'=>'text-center'],
+            'contentOptions' => ['class'=>'text-center'],
+        ],
+        [
+            'label'=>'Triglyceride<150mg/dl (คน)',
+            'attribute'=>'tg_r',
+            'headerOptions' => ['class'=>'text-center'],
+            'contentOptions' => ['class'=>'text-center'],
+        ],
+        
         [
             'label'=>'ร้อยละ ',
             'attribute'=>'total',

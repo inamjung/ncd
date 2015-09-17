@@ -60,6 +60,16 @@ $gridColumns = [
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],
         ],
+         [
+            'class' => 'kartik\grid\DataColumn',
+            'label'=>'Hba1c<7(คน)',
+            'attribute' => 'result_7',
+            'format'=>'integer',
+            'pageSummary' => true,
+            'vAlign' => 'middle',
+            'headerOptions' => ['class'=>'text-center'],
+            'contentOptions' => ['class'=>'text-center'],
+        ],       
         [
             'label'=>'ร้อยละ ',
             'attribute'=>'total',
