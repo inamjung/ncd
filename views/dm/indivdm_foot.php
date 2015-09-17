@@ -15,9 +15,18 @@ use kartik\widgets\Select2;
 use app\models\Registools;
 use yii\data\ArrayDataProvider;
 use app\models\Repairs;
+use yii\helpers\Url;
 
 ?>
-<h4><span class="label label-info">DM ตรวจเท้า ปี <?php echo $byear; ?></span></h4>
+<div class="pull-left">
+    <h4>
+        <span style="background-color:#00A2E8; color: white;padding: 5px">ปีงบประมาณ <?= $byear ?></span>
+    </h4>
+    <a class="btn  btn-success"
+       href="<?= Url::to(['dmscreen', 'cup' => $cup, 'byear' => $byear]) ?>">
+        <i class="glyphicon glyphicon-chevron-left"> ย้อนกลับ</i>
+    </a>
+</div>
 <?php 
 function filter($col) {
     $filterresult = Yii::$app->request->getQueryParam('filterresult', '');

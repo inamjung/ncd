@@ -2,10 +2,12 @@
 $this->title = 'DM คัดกรองอายุ35ปีขึ้นไป แต่ละสถานบริการ ';
 $this->params['breadcrumbs'][] = ['label' => 'DM คัดกรองอายุ35ปีขึ้นไป', 'url' => ['dm/dmscreen']];
 
-$this->params['breadcrumbs'][]=$this->title;
+$this->params['breadcrumbs'][] = $this->title;
+
 //use yii\grid\GridView;
 use miloschuman\highcharts\Highcharts;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use kartik\dynagrid\DynaGrid;
 use kartik\grid\GridView;
 use yii\helpers\ArrayHelper;
@@ -15,10 +17,18 @@ use kartik\widgets\Select2;
 use app\models\Registools;
 use yii\data\ArrayDataProvider;
 use app\models\Repairs;
-
 ?>
-<h4><span class="label label-info">DM คัดกรองอายุ35ปีขึ้นไป แต่ละสถานบริการ ปี <?php echo $byear; ?></span></h4>
-<?php 
+<div class="pull-left">
+    <h4>
+        <span style="background-color:#00A2E8; color: white;padding: 5px">ปีงบประมาณ <?= $byear ?></span>
+    </h4>
+    <a class="btn  btn-success"
+       href="<?= Url::to(['dmscreen', 'cup' => $cup, 'byear' => $byear]) ?>">
+        <i class="glyphicon glyphicon-chevron-left"> ย้อนกลับ</i>
+    </a>
+</div>
+<?php
+
 function filter($col) {
     $filterresult = Yii::$app->request->getQueryParam('filterresult', '');
     if (strlen($filterresult) > 0) {
@@ -44,76 +54,74 @@ $dataProvider = new ArrayDataProvider([
         ]]);
 
 
-    
-    $gridColumns = [
-    ['class'=>'kartik\grid\SerialColumn'],        
-            
-        [
-            'label'=>'เครือข่ายบริการ(CUP)',
-            'attribute'=>'cup',
-            'headerOptions' => ['class'=>'text-center'],            
-        ],
-         [
-            'label'=>'สถานบริการ',
-            'attribute'=>'hospname',
-            'headerOptions' => ['class'=>'text-center'],            
-        ],
-        [
-            'label'=>'เป้าหมาย(คน)',
-            'attribute'=>'target',
-            'headerOptions' => ['class'=>'text-center'],
-            'contentOptions' => ['class'=>'text-center'],
-        ],
-        [
-            'label'=>'ผลงาน (คน)',
-            'attribute'=>'result',
-            'headerOptions' => ['class'=>'text-center'],
-            'contentOptions' => ['class'=>'text-center'],
-        ],
-        [
-            'label'=>'น้ำตาล<100(คน)',
-            'attribute'=>'normal',
-            'headerOptions' => ['class'=>'text-center'],
-            'contentOptions' => ['class'=>'text-center'],
-        ],
-        [
-            'label'=>'น้ำตาล100-125(คน)',
-            'attribute'=>'risk',
-            'headerOptions' => ['class'=>'text-center'],
-            'contentOptions' => ['class'=>'text-center'],
-        ],
-        [
-            'label'=>'น้ำตาล>=126(คน)',
-            'attribute'=>'riskhigh',
-            'headerOptions' => ['class'=>'text-center'],
-            'contentOptions' => ['class'=>'text-center'],
-        ],
-        [
-            'label'=>'ร้อยละ ',
-            'attribute'=>'total',
-            'headerOptions' => ['class'=>'text-center'],
-            'contentOptions' => ['class'=>'text-center'],
-        ],
 
-            ];           
-            echo GridView::widget([
-            'dataProvider' => $dataProvider,
-            'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
-            'columns' => $gridColumns,
-            'responsive' => true,
-            'hover' => true,
-            'floatHeader' => FALSE,        
-           //'showPageSummary' => true,
-            'panel' => [           
-                'type' => GridView::TYPE_INFO,
-                'heading' => 'DM คัดกรองอายุ35ปีขึ้นไป ',                
-                        ],
-                    ]);
-            ?>
+$gridColumns = [
+    ['class' => 'kartik\grid\SerialColumn'],
+    [
+        'label' => 'เครือข่ายบริการ(CUP)',
+        'attribute' => 'cup',
+        'headerOptions' => ['class' => 'text-center'],
+    ],
+    [
+        'label' => 'สถานบริการ',
+        'attribute' => 'hospname',
+        'headerOptions' => ['class' => 'text-center'],
+    ],
+    [
+        'label' => 'เป้าหมาย(คน)',
+        'attribute' => 'target',
+        'headerOptions' => ['class' => 'text-center'],
+        'contentOptions' => ['class' => 'text-center'],
+    ],
+    [
+        'label' => 'ผลงาน (คน)',
+        'attribute' => 'result',
+        'headerOptions' => ['class' => 'text-center'],
+        'contentOptions' => ['class' => 'text-center'],
+    ],
+    [
+        'label' => 'น้ำตาล<100(คน)',
+        'attribute' => 'normal',
+        'headerOptions' => ['class' => 'text-center'],
+        'contentOptions' => ['class' => 'text-center'],
+    ],
+    [
+        'label' => 'น้ำตาล100-125(คน)',
+        'attribute' => 'risk',
+        'headerOptions' => ['class' => 'text-center'],
+        'contentOptions' => ['class' => 'text-center'],
+    ],
+    [
+        'label' => 'น้ำตาล>=126(คน)',
+        'attribute' => 'riskhigh',
+        'headerOptions' => ['class' => 'text-center'],
+        'contentOptions' => ['class' => 'text-center'],
+    ],
+    [
+        'label' => 'ร้อยละ ',
+        'attribute' => 'total',
+        'headerOptions' => ['class' => 'text-center'],
+        'contentOptions' => ['class' => 'text-center'],
+    ],
+];
+echo GridView::widget([
+    'dataProvider' => $dataProvider,
+    'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
+    'columns' => $gridColumns,
+    'responsive' => true,
+    'hover' => true,
+    'floatHeader' => FALSE,
+    //'showPageSummary' => true,
+    'panel' => [
+        'type' => GridView::TYPE_INFO,
+        'heading' => 'DM คัดกรองอายุ35ปีขึ้นไป ',
+    ],
+]);
+?>
 
 <?php
-    // You only need add this,
-    $this->registerJs('
+// You only need add this,
+$this->registerJs('
         var gridview_id = ""; // specific gridview
         
         var columns = [2]; //that will grouping, start 1
