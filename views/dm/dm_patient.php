@@ -70,27 +70,27 @@ $gridColumns = [
             ?>
 <?php Pjax::end();?> 
 
-<?php echo Highcharts::widget([
-    'options'=>[        
-        'title'=>['text'=>'DM ขึ้นทะเบียน'],
-        'xAxis'=>[
-            'categories'=>$cup
-        ],
-        'yAxis'=>[
-            'title'=>['text'=>'จำนวน(คน)']
-        ],
-        'series'=>[            
-            [
-                'type'=>'column',
-                'color'=>'red',
-                'name'=>'จำนวน(คน)',
-                'data'=>$total,
-            ],
-           
-            
-        ]
-    ]
-]);?>
+<?php //echo Highcharts::widget([
+//    'options'=>[        
+//        'title'=>['text'=>'DM ขึ้นทะเบียน'],
+//        'xAxis'=>[
+//            'categories'=>$cup
+//        ],
+//        'yAxis'=>[
+//            'title'=>['text'=>'จำนวน(คน)']
+//        ],
+//        'series'=>[            
+//            [
+//                'type'=>'column',
+//                'color'=>'red',
+//                'name'=>'จำนวน(คน)',
+//                'data'=>$total,
+//            ],
+//           
+//            
+//        ]
+//    ]
+//]);?>
 
 
 <div class="footerrow" style="padding-top: 60px">

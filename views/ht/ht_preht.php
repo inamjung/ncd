@@ -45,7 +45,7 @@ $gridColumns = [
         [
             'class' => 'kartik\grid\DataColumn',
             'attribute' => 'target',
-            'label'=>'เป้าหมาย(คน)',
+            'label'=>'จำนวน Pre HT(คน)',
             'format'=>'integer',
             'pageSummary' => true,
             'vAlign' => 'middle',
@@ -54,7 +54,7 @@ $gridColumns = [
         ],
         [
             'class' => 'kartik\grid\DataColumn',
-            'label'=>'ผลงาน (คน)',
+            'label'=>'จำนวนผู้ป่วย (คน)',
             'attribute' => 'result',
             'format'=>'integer',
             'pageSummary' => true,

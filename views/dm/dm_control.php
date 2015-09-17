@@ -83,39 +83,39 @@ $gridColumns = [
             ?>
 <?php Pjax::end();?> 
 
-<?php echo Highcharts::widget([
-    'options'=>[        
-        'title'=>['text'=>'DM ที่ควบคุมได้2ครั้งสุดท้าย'],
-        'xAxis'=>[
-            'categories'=>$cup
-        ],
-        'yAxis'=>[
-            'title'=>['text'=>'จำนวน(คน)']
-        ],
-        'series'=>[
-            [
-                'type'=>'column',
-                'name'=>'เป้าหมาย',
-                'data'=>$target,
-                
-            ],
-            [
-                'type'=>'column',
-                'name'=>'ผลงาน',
-                'data'=>$result,
-                 
-            ],
-            [
-                'type'=>'column',
-                'color'=>'red',
-                'name'=>'ร้อยละ',
-                
-            ],
-           
-            
-        ]
-    ]
-]);?>
+<?php //echo Highcharts::widget([
+//    'options'=>[        
+//        'title'=>['text'=>'DM ที่ควบคุมได้2ครั้งสุดท้าย'],
+//        'xAxis'=>[
+//            'categories'=>$cup
+//        ],
+//        'yAxis'=>[
+//            'title'=>['text'=>'จำนวน(คน)']
+//        ],
+//        'series'=>[
+//            [
+//                'type'=>'column',
+//                'name'=>'เป้าหมาย',
+//                'data'=>$target,
+//                
+//            ],
+//            [
+//                'type'=>'column',
+//                'name'=>'ผลงาน',
+//                'data'=>$result,
+//                 
+//            ],
+//            [
+//                'type'=>'column',
+//                'color'=>'red',
+//                'name'=>'ร้อยละ',
+//                
+//            ],
+//           
+//            
+//        ]
+//    ]
+//]);?>
 
 
 <div class="footerrow" style="padding-top: 60px">

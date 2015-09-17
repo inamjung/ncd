@@ -61,7 +61,7 @@ $dataProvider = new ArrayDataProvider([
         ],
         
         [
-            'label'=>'จำนวน(คน) ',
+            'label'=>'จำนวนผู้ป่วย(คน) ',
             'attribute'=>'total',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],

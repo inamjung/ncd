@@ -44,7 +44,7 @@ $gridColumns = [
         [
             'class' => 'kartik\grid\DataColumn',
             'attribute' => 'target',
-            'label'=>'เป้าหมาย(คน)',
+            'label'=>'จำนวนผู้ป่วย(คน)',
             'format'=>'integer',
             'pageSummary' => true,
             'vAlign' => 'middle',
@@ -53,7 +53,7 @@ $gridColumns = [
         ],
         [
             'class' => 'kartik\grid\DataColumn',
-            'label'=>'ผลงาน (คน)',
+            'label'=>'พบภาวะแทรกซ้อน หลอดเลือดสมอง (คน)',
             'attribute' => 'result',
             'format'=>'integer',
             'pageSummary' => true,
@@ -85,36 +85,36 @@ $gridColumns = [
             ?>
 <?php Pjax::end();?> 
 
-<?php echo Highcharts::widget([
-    'options'=>[        
-        'title'=>['text'=>'HT พบภาวะแทรกซ้อน หลอดเลือดสมอง'],
-        'xAxis'=>[
-            'categories'=>$cup
-        ],
-        'yAxis'=>[
-            'title'=>['text'=>'จำนวน(คน)']
-        ],
-        'series'=>[
-            [
-                'type'=>'column',
-                'name'=>'เป้าหมาย',
-                'data'=>$target,
-            ],
-            [
-                'type'=>'column',
-                'name'=>'ผลงาน',
-                'data'=>$result,
-            ],
-            [
-                'type'=>'column',                
-                'name'=>'ร้อยละ',
-                'data'=>$total,
-            ],
-           
-            
-        ]
-    ]
-]);?>
+<?php //echo Highcharts::widget([
+//    'options'=>[        
+//        'title'=>['text'=>'HT พบภาวะแทรกซ้อน หลอดเลือดสมอง'],
+//        'xAxis'=>[
+//            'categories'=>$cup
+//        ],
+//        'yAxis'=>[
+//            'title'=>['text'=>'จำนวน(คน)']
+//        ],
+//        'series'=>[
+//            [
+//                'type'=>'column',
+//                'name'=>'เป้าหมาย',
+//                'data'=>$target,
+//            ],
+//            [
+//                'type'=>'column',
+//                'name'=>'ผลงาน',
+//                'data'=>$result,
+//            ],
+//            [
+//                'type'=>'column',                
+//                'name'=>'ร้อยละ',
+//                'data'=>$total,
+//            ],
+//           
+//            
+//        ]
+//    ]
+//]);?>
 
 
 <div class="footerrow" style="padding-top: 60px">

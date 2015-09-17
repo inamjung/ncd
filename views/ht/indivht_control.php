@@ -59,13 +59,13 @@ $dataProvider = new ArrayDataProvider([
             'headerOptions' => ['class'=>'text-center'],            
         ],
         [
-            'label'=>'เป้าหมาย(คน)',
+            'label'=>'จำนวนวัดความดัน(คน)(คน)',
             'attribute'=>'target',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],
         ],
         [
-            'label'=>'ผลงาน (คน)',
+            'label'=>'ควบคุมได้ <140/90 (คน)',
             'attribute'=>'result',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],

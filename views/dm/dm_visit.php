@@ -90,37 +90,37 @@ $gridColumns = [
             ?>
 <?php Pjax::end();?> 
 
-<?php echo Highcharts::widget([
-    'options'=>[        
-        'title'=>['text'=>'DM รับบริการที่สถานบริการ'],
-        'xAxis'=>[
-            'categories'=>$cup
-        ],
-        'yAxis'=>[
-            'title'=>['text'=>'จำนวน(คน)']
-        ],
-        'series'=>[
-            [
-                'type'=>'column',
-                'name'=>'เป้าหมาย(คน)',
-                'data'=>$total,
-            ],
-            [
-                'type'=>'column',
-                'name'=>'รับบริการ(คน)',
-                'data'=>$visit,
-            ],
-            [
-                'type'=>'column',
-                'color'=>'red',
-                'name'=>'รับบริการ(ครั้ง)',
-                'data'=>$visit_all,
-            ],
-           
-            
-        ]
-    ]
-]);?>
+<?php //echo Highcharts::widget([
+//    'options'=>[        
+//        'title'=>['text'=>'DM รับบริการที่สถานบริการ'],
+//        'xAxis'=>[
+//            'categories'=>$cup
+//        ],
+//        'yAxis'=>[
+//            'title'=>['text'=>'จำนวน(คน)']
+//        ],
+//        'series'=>[
+//            [
+//                'type'=>'column',
+//                'name'=>'เป้าหมาย(คน)',
+//                'data'=>$total,
+//            ],
+//            [
+//                'type'=>'column',
+//                'name'=>'รับบริการ(คน)',
+//                'data'=>$visit,
+//            ],
+//            [
+//                'type'=>'column',
+//                'color'=>'red',
+//                'name'=>'รับบริการ(ครั้ง)',
+//                'data'=>$visit_all,
+//            ],
+//           
+//            
+//        ]
+//    ]
+//]);?>
 
 
 <div class="footerrow" style="padding-top: 60px">

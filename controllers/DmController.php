@@ -151,7 +151,8 @@ public function actionDmlipid($byear=2558) {
         ]);
         return $this->render('dm_lipid', [
                     'dataProvider' => $dataProvider,
-                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total,'byear' => $byear,
+                    'cup' => $cup, 'target' => $target, 'result' => $result, 
+            'total' => $total,'byear' => $byear,
         ]);
     }
 

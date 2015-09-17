@@ -43,7 +43,7 @@ $gridColumns = [
         ],        
         [
             'class' => 'kartik\grid\DataColumn',
-            'label'=>'จำนวน(คน) ',
+            'label'=>'จำนวนผู้ป่วย(คน) ',
             'attribute' => 'total',
             'format'=>'integer',
             'pageSummary' => true,
@@ -69,26 +69,26 @@ $gridColumns = [
             ?>
 <?php Pjax::end();?> 
 
-<?php echo Highcharts::widget([
-    'options'=>[        
-        'title'=>['text'=>'HT ขึ้นทะเบียน'],
-        'xAxis'=>[
-            'categories'=>$cup
-        ],
-        'yAxis'=>[
-            'title'=>['text'=>'จำนวน(คน)']
-        ],
-        'series'=>[         
-            [
-                'type'=>'column',                
-                'name'=>'จำนวน(คน)',
-                'data'=>$total,
-            ],
-           
-            
-        ]
-    ]
-]);?>
+<?php //echo Highcharts::widget([
+//    'options'=>[        
+//        'title'=>['text'=>'HT ขึ้นทะเบียน'],
+//        'xAxis'=>[
+//            'categories'=>$cup
+//        ],
+//        'yAxis'=>[
+//            'title'=>['text'=>'จำนวน(คน)']
+//        ],
+//        'series'=>[         
+//            [
+//                'type'=>'column',                
+//                'name'=>'จำนวน(คน)',
+//                'data'=>$total,
+//            ],
+//           
+//            
+//        ]
+//    ]
+//]);?>
 
 
 <div class="footerrow" style="padding-top: 60px">

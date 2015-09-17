@@ -32,6 +32,9 @@ class HtController extends Controller {
             $target[] = $data[$i]['target'] * 1;
             $result[] = $data[$i]['result'] * 1;
             $total[] = $data[$i]['total'] * 1;
+            $normal[] = $data[$i]['normal'] * 1;
+            $risk[] = $data[$i]['risk'] * 1;
+            $riskhigh[] = $data[$i]['riskhigh'] * 1;
         }
 
         $dataProvider = new ArrayDataProvider([
@@ -39,15 +42,16 @@ class HtController extends Controller {
         ]);
         return $this->render('ht_screen', [
                     'dataProvider' => $dataProvider,
-                    'cup' => $cup, 'target' => $target, 'result' => $result, 'total' => $total,'byear' => $byear,
+                    'cup' => $cup, 'target' => $target, 'result' => $result, 
+                    'total' => $total,'byear' => $byear,'normal'=>$normal,'risk'=>$risk,'riskhigh'=>$riskhigh
         ]);
     }
 
     public function actionIndivhtscreen($cup = null,$byear=nul) {
 
-        $sql = "SELECT distcode, cup,hospname ,FORMAT(SUM(target),0)as target 
-                ,Format(SUM(result),0) as result,SUM(normal)as normal
-                ,FORMAT(SUM(risk),0) as risk,FORMAT(SUM(riskhigh),0) as riskhigh
+        $sql = "SELECT distcode, cup,hospname ,SUM(target)as target 
+                ,SUM(result)as result,SUM(normal)as normal
+                ,SUM(risk) as risk,SUM(riskhigh) as riskhigh
                 ,ROUND((SUM(result) * 100)/SUM(target),2) as total
                 FROM ht_screen
                 WHERE byear='$byear' and cup='$cup'
@@ -148,6 +152,7 @@ class HtController extends Controller {
                     'dataProvider' => $dataProvider,
                     'cup' => $cup, 'target' => $target, 
                 'result' => $result, 'total' => $total,'byear' => $byear, 
+            
         ]);
     }
 

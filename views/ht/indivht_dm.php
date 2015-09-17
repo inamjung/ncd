@@ -60,13 +60,13 @@ $dataProvider = new ArrayDataProvider([
             'headerOptions' => ['class'=>'text-center'],            
         ],
         [
-            'label'=>'เป้าหมาย(คน)',
+            'label'=>'จำนวนผู้ป่วย(คน)',
             'attribute'=>'target',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],
         ],
         [
-            'label'=>'ผลงาน (คน)',
+            'label'=>'พบภาวะแทรกซ้อน เบาหวาน (คน)',
             'attribute'=>'result',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],

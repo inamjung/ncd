@@ -85,37 +85,37 @@ $gridColumns = [
             ?>
 <?php Pjax::end();?> 
 
-<?php echo Highcharts::widget([
-    'options'=>[        
-        'title'=>['text'=>'DM พบภาวะแทรกซ้อน หัวใจและหลอดเลือด'],
-        'xAxis'=>[
-            'categories'=>$cup
-        ],
-        'yAxis'=>[
-            'title'=>['text'=>'จำนวน(คน)']
-        ],
-        'series'=>[
-            [
-                'type'=>'column',
-                'name'=>'เป้าหมาย',
-                'data'=>$target,
-            ],
-            [
-                'type'=>'column',
-                'name'=>'ผลงาน',
-                'data'=>$result,
-            ],
-            [
-                'type'=>'column',
-                'color'=>'red',
-                'name'=>'ร้อยละ',
-                'data'=>$total,
-            ],
-           
-            
-        ]
-    ]
-]);?>
+<?php //echo Highcharts::widget([
+//    'options'=>[        
+//        'title'=>['text'=>'DM พบภาวะแทรกซ้อน หัวใจและหลอดเลือด'],
+//        'xAxis'=>[
+//            'categories'=>$cup
+//        ],
+//        'yAxis'=>[
+//            'title'=>['text'=>'จำนวน(คน)']
+//        ],
+//        'series'=>[
+//            [
+//                'type'=>'column',
+//                'name'=>'เป้าหมาย',
+//                'data'=>$target,
+//            ],
+//            [
+//                'type'=>'column',
+//                'name'=>'ผลงาน',
+//                'data'=>$result,
+//            ],
+//            [
+//                'type'=>'column',
+//                'color'=>'red',
+//                'name'=>'ร้อยละ',
+//                'data'=>$total,
+//            ],
+//           
+//            
+//        ]
+//    ]
+//]);?>
 
 
 <div class="footerrow" style="padding-top: 60px">
