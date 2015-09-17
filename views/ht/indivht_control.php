@@ -68,7 +68,7 @@ $dataProvider = new ArrayDataProvider([
             'headerOptions' => ['class'=>'text-center'],            
         ],
         [
-            'label'=>'จำนวนวัดความดัน(คน)(คน)',
+            'label'=>'จำนวนวัดความดัน(คน)',
             'attribute'=>'target',
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],

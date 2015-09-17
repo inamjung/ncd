@@ -44,7 +44,7 @@ $gridColumns = [
         [
             'class' => 'kartik\grid\DataColumn',
             'attribute' => 'target',
-            'label'=>'จำนวนวัดความดัน(คน)(คน)',
+            'label'=>'จำนวนวัดความดัน(คน)',
             'format'=>'integer',
             'pageSummary' => true,
             'vAlign' => 'middle',

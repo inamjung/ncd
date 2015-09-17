@@ -28,7 +28,7 @@ MaterialAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => '<i class="glyphicon glyphicon-stats"></i> ระบบสารสนเทศผู้ป่วยโรคเบาหวานความดัน จังหวัดพิษณุโลก',
+                'brandLabel' => '<i class="glyphicon glyphicon-stats"></i> ระบบสารสนเทศผู้ป่วยโรคเบาหวาน ความดัน จังหวัดพิษณุโลก',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
@@ -38,7 +38,7 @@ MaterialAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'encodeLabels' => false,
                 'items' => [                    
-                    ['label' => '<i class="glyphicon glyphicon-list"></i> รายงานDM',
+                    ['label' => '<i class="glyphicon glyphicon-list"></i> เบาหวาน',
                         'items' => [
                             ['label' => 'DM คัดกรองอายุ35ปีขึ้นไป', 'url' => ['/dm/dmscreen']],
                             ['label' => 'DM DM ได้รับการตรวจ HbA1C', 'url' => ['/dm/dmhba1c']],
@@ -58,7 +58,7 @@ MaterialAsset::register($this);
 
                         ]
                     ],
-                    ['label' => '<i class="glyphicon glyphicon-list"></i> รายงานHT',
+                    ['label' => '<i class="glyphicon glyphicon-list"></i> ความดัน',
                         'items' => [
                             ['label' => 'HT คัดกรองอายุ35ปีขึ้นไป', 'url' => ['/ht/htscreen']],
                             ['label' => 'HT ได้รับการตรวจ Creatinin', 'url' => ['/ht/htcreatinin']],
