@@ -11,7 +11,7 @@ use yii\data\ArrayDataProvider;
 use yii\helpers\ArrayHelper;
 use yii\widgets\Pjax;
 
-
+$datas = $dataProvider->getModels();
 $this->params['breadcrumbs'][]=$this->title;
 ?>
 
@@ -60,13 +60,15 @@ $gridColumns = [
             'panel' => [           
                 'type' => GridView::TYPE_PRIMARY,
                 'heading' => 'HT ขึ้นทะเบียน ปีงบประมาณ '.$byear,
-
-                        ],
+                'footer'=>'ประมวลผล ณ วันที่ :  '.$datas[2]['sdate'],                    
+                        ]
                     ]);
             ?>
+
 <?php Pjax::end();?> 
 
 <?php //echo Highcharts::widget([
+// echo date('Y-m-d',strtotime('20150731'));
 //    'options'=>[        
 //        'title'=>['text'=>'HT ขึ้นทะเบียน'],
 //        'xAxis'=>[

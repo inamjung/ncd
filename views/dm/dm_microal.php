@@ -14,6 +14,7 @@ use yii\widgets\Pjax;
 
 //$this->params['breadcrumbs'][] = ['label' => 'รายงาน', 'url' => ['main/index']];
 $this->params['breadcrumbs'][]=$this->title;
+$datas = $dataProvider->getModels();
 ?>
 
 <div class="btn-group" role="group" aria-label="...">
@@ -77,7 +78,7 @@ $gridColumns = [
             'panel' => [           
                 'type' => GridView::TYPE_SUCCESS,
                 'heading' => 'DM ได้รับการตรวจ Microalbumin ปีงบประมาณ '.$byear,
-
+                'footer'=>'ประมวลผล ณ วันที่ :  '.$datas[4]['sdate']
                         ],
                     ]);
             ?>

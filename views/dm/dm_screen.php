@@ -1,8 +1,6 @@
 
 <?php
 $this->title = 'DM';
-
-
 use kartik\grid\GridView;
 use miloschuman\highcharts\Highcharts;
 use yii\helpers\Html;
@@ -12,6 +10,7 @@ use yii\helpers\ArrayHelper;
 use yii\widgets\Pjax;
 
 $this->params['breadcrumbs'][]=$this->title;
+$datas = $dataProvider->getModels();
 ?>
 
 <div class="btn-group" role="group" aria-label="...">
@@ -20,6 +19,7 @@ $this->params['breadcrumbs'][]=$this->title;
             <a  class="btn btn-info" href="<?= Url::to(['dm/dmscreen', 'byear' => '2558']) ?>">2558</a>
           
         </div>
+        
 <?php Pjax::begin();?> 
 <?php
 $gridColumns = [
@@ -94,6 +94,7 @@ $gridColumns = [
             'headerOptions' => ['class'=>'text-center'],
             'contentOptions' => ['class'=>'text-center'],
         ],
+      
          
 ];           
             echo GridView::widget([
@@ -107,8 +108,7 @@ $gridColumns = [
             'panel' => [           
                 'type' => GridView::TYPE_SUCCESS,
                 'heading' => 'DM คัดกรองอายุ35ปีขึ้นไป ปีงบประมาณ '.$byear,
-
-                        ],
+                'footer'=>'ประมวลผล ณ วันที่ '.' : '.$datas[7]['sdate']],
                     ]);
             ?>
 <?php Pjax::end();?> 

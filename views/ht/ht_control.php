@@ -11,7 +11,7 @@ use yii\data\ArrayDataProvider;
 use yii\helpers\ArrayHelper;
 use yii\widgets\Pjax;
 
-
+$datas = $dataProvider->getModels();
 $this->params['breadcrumbs'][]=$this->title;
 ?>
 
@@ -76,7 +76,7 @@ $gridColumns = [
             'panel' => [           
                 'type' => GridView::TYPE_PRIMARY,
                 'heading' => 'HT ที่ควบคุมได้ 2 ครั้งสุดท้าย ปีงบประมาณ '.$byear,
-
+                'footer'=>'ประมวลผล ณ วันที่ :  '.$datas[4]['sdate']
                         ],
                     ]);
             ?>

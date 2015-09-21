@@ -16,13 +16,13 @@ class DmController extends Controller {
     public $enableCsrfValidation = false;
 
     public function actionDmscreen($byear=2558) { 
-     
+    
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
             SELECT distcode, cup ,SUM(target)as target , SUM(result)as result
             ,SUM(normal)as normal
             ,SUM(risk)as risk,SUM(riskhigh) as riskhigh
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM dm_screen 
             where byear= '$byear'
             GROUP BY cup")->queryAll();
@@ -77,7 +77,7 @@ class DmController extends Controller {
         $data = $connection->createCommand("
              SELECT distcode, cup ,SUM(target)as target , SUM(result)as result
                 ,SUM(result_7)as result_7
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM dm_hba1c
                 where byear= '$byear'
                 GROUP BY cup
@@ -130,7 +130,7 @@ public function actionDmlipid($byear=2558) {
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
              SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             ,SUM(hdl) as hdl,SUM(hdl_r) as hdl_r
             ,SUM(ldl) as ldl,SUM(ldl_r) as ldl_r
             ,SUM(chol) as chol,SUM(chol_r) as chol_r
@@ -187,7 +187,7 @@ public function actionDmlipid($byear=2558) {
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
              SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM dm_microalbumin where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -236,7 +236,7 @@ public function actionDmlipid($byear=2558) {
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
              SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM dm_eye where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -286,7 +286,7 @@ public function actionDmlipid($byear=2558) {
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
              SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM dm_foot where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -336,7 +336,7 @@ public function actionDmlipid($byear=2558) {
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
              SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM dm_control where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -386,7 +386,7 @@ public function actionDmlipid($byear=2558) {
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
              SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM dm_ht where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -436,7 +436,7 @@ public function actionDmlipid($byear=2558) {
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
              SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM dm_kidney where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -486,7 +486,7 @@ public function actionDmlipid($byear=2558) {
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
              SELECT distcode, cup ,SUM(target)as target ,SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM dm_stroke where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -536,7 +536,7 @@ public function actionDmlipid($byear=2558) {
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
              SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM dm_heart where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -586,7 +586,7 @@ public function actionDmlipid($byear=2558) {
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
              SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM dm_predm where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -635,7 +635,7 @@ public function actionDmlipid($byear=2558) {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
-             SELECT distcode, cup ,SUM(total)as total 
+             SELECT distcode, cup ,SUM(total)as total ,sdate
             FROM dm_patient where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -680,7 +680,7 @@ public function actionDmlipid($byear=2558) {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
-           SELECT distcode, cup ,SUM(total)as total 
+           SELECT distcode, cup ,SUM(total)as total ,sdate
             ,SUM(visit) as visit
             ,SUM(visit_all) as visit_all
             FROM dm_patient_visit where byear= '$byear'

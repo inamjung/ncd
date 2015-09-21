@@ -22,7 +22,7 @@ class HtController extends Controller {
              SELECT distcode, cup ,SUM(target)as target 
                 ,SUM(result) as result,SUM(normal)as normal
                 ,SUM(risk) as risk,SUM(riskhigh) as riskhigh
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM ht_screen where byear= '$byear'
                 GROUP BY cup
                         ")->queryAll();
@@ -78,7 +78,7 @@ class HtController extends Controller {
         $data = $connection->createCommand("
            SELECT distcode, cup ,SUM(target)as target 
             ,SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM ht_screen where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -129,7 +129,7 @@ class HtController extends Controller {
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
            SELECT distcode, cup ,SUM(target)as target , SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             ,SUM(hdl) as hdl,SUM(hdl_r) as hdl_r
             ,SUM(ldl) as ldl,SUM(ldl_r) as ldl_r
             ,SUM(chol) as chol,SUM(chol_r) as chol_r
@@ -190,7 +190,7 @@ class HtController extends Controller {
         $data = $connection->createCommand("
            SELECT distcode, cup ,SUM(target)as target 
             ,SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             ,SUM(r1) as r1,SUM(r2) as r2
             ,SUM(r3) as r3
             FROM ht_fbs where byear= '$byear'
@@ -246,7 +246,7 @@ class HtController extends Controller {
         $data = $connection->createCommand("
           SELECT distcode, cup ,SUM(target)as target 
             ,SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM ht_control where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -298,7 +298,7 @@ class HtController extends Controller {
         $data = $connection->createCommand("
           SELECT distcode, cup ,SUM(target) as target 
             ,SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM ht_dm where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -350,7 +350,7 @@ class HtController extends Controller {
         $data = $connection->createCommand("
           SELECT distcode, cup ,SUM(target) as target 
             ,SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM ht_stroke where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -402,7 +402,7 @@ class HtController extends Controller {
         $data = $connection->createCommand("
           SELECT distcode, cup ,SUM(target) as target 
             ,SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM ht_heart where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -454,7 +454,7 @@ class HtController extends Controller {
         $data = $connection->createCommand("
           SELECT distcode, cup ,SUM(target) as target 
             ,SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM ht_kidney where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -505,7 +505,7 @@ class HtController extends Controller {
         $data = $connection->createCommand("
           SELECT distcode, cup ,SUM(target) as target 
             ,SUM(result) as result
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM ht_preht where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -554,7 +554,7 @@ class HtController extends Controller {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
-         SELECT distcode, cup ,SUM(total) as total
+         SELECT distcode, cup ,SUM(total) as total,sdate
             FROM ht_patient  where byear= '$byear'
             GROUP BY cup
                         ")->queryAll();
@@ -601,7 +601,7 @@ class HtController extends Controller {
 
         $connection = Yii::$app->db;
         $data = $connection->createCommand("
-       SELECT distcode, cup ,SUM(total) as total
+       SELECT distcode, cup ,SUM(total) as total,sdate
         ,SUM(visit) as visit
         ,SUM(visit_all)as visit_all
         FROM ht_patient_visit  where byear= '$byear'

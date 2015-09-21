@@ -14,6 +14,7 @@ use yii\widgets\Pjax;
 
 //$this->params['breadcrumbs'][] = ['label' => 'รายงาน', 'url' => ['main/index']];
 $this->params['breadcrumbs'][]=$this->title;
+$datas = $dataProvider->getModels();
 ?>
 
 <div class="btn-group" role="group" aria-label="...">
@@ -76,8 +77,8 @@ $gridColumns = [
             'showPageSummary' => true,
             'panel' => [           
                 'type' => GridView::TYPE_SUCCESS,
-                'heading' => 'DM ตรวจเท้า ปีงบประมาณ '.$byear
-
+                'heading' => 'DM ตรวจเท้า ปีงบประมาณ '.$byear,
+                'footer'=>'ประมวลผล ณ วันที่ :  '.$datas[4]['sdate']
                         ],
                     ]);
             ?>

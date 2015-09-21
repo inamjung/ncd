@@ -13,6 +13,7 @@ use yii\widgets\Pjax;
 
 
 $this->params['breadcrumbs'][]=$this->title;
+$datas = $dataProvider->getModels();
 ?>
 
 <div class="btn-group" role="group" aria-label="...">
@@ -61,7 +62,7 @@ $gridColumns = [
             'panel' => [           
                 'type' => GridView::TYPE_SUCCESS,
                 'heading' => 'DM ขึ้นทะเบียน ปีงบประมาณ '.$byear,
-
+                'footer'=>'ประมวลผล ณ วันที่ :  '.$datas[2]['sdate']
                         ],
                     ]);
             ?>
