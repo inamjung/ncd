@@ -121,7 +121,7 @@ $dataProvider = new ArrayDataProvider([
             'panel' => [           
                 'type' => GridView::TYPE_SUCCESS,
                 'heading' => 'HT คัดกรองอายุ35ปีขึ้นไป',
-
+                'footer'=>'ประมวลผล ณ วันที่  : '.  date('Y-m-d',strtotime($rawData[0]['sdate'])),
                         ],
                     ]);
             ?>

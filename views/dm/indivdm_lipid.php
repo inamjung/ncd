@@ -1,4 +1,5 @@
 <?php
+
 //$this->title = 'DM ได้รับการตรวจ Lipid profile';
 $this->params['breadcrumbs'][] = ['label' => 'DM ได้รับการตรวจ Lipid profile', 'url' => ['dm/dmlipid']];
 
@@ -149,7 +150,7 @@ $dataProvider = new ArrayDataProvider([
             'panel' => [           
                 'type' => GridView::TYPE_INFO,
                 'heading' => 'DM ได้รับการตรวจ Lipid profile',
-
+                'footer'=>'ประมวลผล ณ วันที่  : '.  date('Y-m-d',strtotime($rawData[0]['sdate'])),
                         ],
                     ]);
             ?>

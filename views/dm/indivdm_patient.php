@@ -1,4 +1,5 @@
 <?php
+
 //$this->title = 'DM ขึ้นทะเบียน ปี 2558';
 $this->params['breadcrumbs'][] = ['label' => 'DM ขึ้นทะเบียน', 'url' => ['dm/dmpatient']];
 
@@ -87,7 +88,7 @@ $dataProvider = new ArrayDataProvider([
             'panel' => [           
                 'type' => GridView::TYPE_INFO,
                 'heading' => 'DM ขึ้นทะเบียน',
-
+                'footer'=>'ประมวลผล ณ วันที่  : '.  date('Y-m-d',strtotime($rawData[0]['sdate'])),
                         ],
                     ]);
             ?>

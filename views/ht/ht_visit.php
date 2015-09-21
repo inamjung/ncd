@@ -81,7 +81,7 @@ $gridColumns = [
             'panel' => [           
                 'type' => GridView::TYPE_PRIMARY,
                 'heading' => 'HT รับบริการที่สถานบริการ ปีงบประมาณ '.$byear,
-                'footer'=>'ประมวลผล ณ วันที่ :  '.$datas[2]['sdate']
+               'footer'=>'ประมวลผล ณ วันที่  : '.  date('Y-m-d',strtotime($datas[2]['sdate'])),   
                         ],
                     ]);
             ?>

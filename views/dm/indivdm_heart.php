@@ -1,4 +1,5 @@
 <?php
+
 //$this->title = 'DM พบภาวะแทรกซ้อน หัวใจและหลอดเลือด ปี 2558';
 $this->params['breadcrumbs'][] = ['label' => 'DM พบภาวะแทรกซ้อน หัวใจและหลอดเลือด', 'url' => ['dm/dmheart']];
 
@@ -98,7 +99,7 @@ $dataProvider = new ArrayDataProvider([
             'panel' => [           
                 'type' => GridView::TYPE_INFO,
                 'heading' => 'DM พบภาวะแทรกซ้อน หัวใจและหลอดเลือด',
-
+                'footer'=>'ประมวลผล ณ วันที่  : '.  date('Y-m-d',strtotime($rawData[0]['sdate'])),
                         ],
                     ]);
             ?>

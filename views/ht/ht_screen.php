@@ -106,7 +106,7 @@ $gridColumns = [
             'panel' => [           
                 'type' => GridView::TYPE_PRIMARY,
                 'heading' => 'HT คัดกรองอายุ35ปีขึ้นไป ปีงบประมาณ '.$byear,
-                'footer'=>'ประมวลผล ณ วันที่ :  '.$datas[7]['sdate']
+                'footer'=>'ประมวลผล ณ วันที่  : '.  date('Y-m-d',strtotime($datas[7]['sdate'])), 
                         ],
                     ]);
             ?>

@@ -1,4 +1,5 @@
 <?php
+
 //$this->title = 'DM รายใหม่จากกลุ่ม PreDM ปี 2558';
 $this->params['breadcrumbs'][] = ['label' => 'DM รายใหม่จากกลุ่ม PreDM', 'url' => ['dm/dmpredm']];
 
@@ -98,7 +99,7 @@ $dataProvider = new ArrayDataProvider([
             'panel' => [           
                 'type' => GridView::TYPE_INFO,
                 'heading' => 'DM รายใหม่จากกลุ่ม PreDM',
-
+                'footer'=>'ประมวลผล ณ วันที่  : '.  date('Y-m-d',strtotime($rawData[0]['sdate'])),
                         ],
                     ]);
             ?>

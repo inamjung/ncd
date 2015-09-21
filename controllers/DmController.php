@@ -51,7 +51,7 @@ class DmController extends Controller {
             ,Format(SUM(result),0) as result
             ,SUM(normal)as normal
             ,FORMAT(SUM(risk),0) as risk,FORMAT(SUM(riskhigh),0) as riskhigh
-            ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+            ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
             FROM dm_screen
             WHERE byear='$byear' and cup='$cup'
             GROUP BY hospcode";
@@ -105,7 +105,7 @@ class DmController extends Controller {
 
         $sql = "SELECT distcode,hospname, cup ,SUM(target)as target , SUM(result)as result
                 ,SUM(result_7) as result_7
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM dm_hba1c
                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY cup";
@@ -159,7 +159,7 @@ public function actionDmlipid($byear=2558) {
     public function actionIndivdmlipid($cup = null,$byear=nul) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target , Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 ,FORMAT(SUM(hdl),0) as hdl,FORMAT(SUM(hdl_r),0) as hdl_r
                 ,FORMAT(SUM(ldl),0) as ldl,FORMAT(SUM(ldl_r),0) as ldl_r
                 ,FORMAT(SUM(chol),0) as chol,FORMAT(SUM(chol_r),0) as chol_r
@@ -212,7 +212,7 @@ public function actionDmlipid($byear=2558) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM dm_microalbumin WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospname";
 
@@ -261,7 +261,7 @@ public function actionDmlipid($byear=2558) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM dm_eye
                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospname";
@@ -311,7 +311,7 @@ public function actionDmlipid($byear=2558) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM dm_foot
                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospname";
@@ -361,7 +361,7 @@ public function actionDmlipid($byear=2558) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM dm_control
                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospname";
@@ -411,7 +411,7 @@ public function actionDmlipid($byear=2558) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM dm_ht
                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospname";
@@ -461,7 +461,7 @@ public function actionDmlipid($byear=2558) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM dm_kidney
                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospname";
@@ -511,7 +511,7 @@ public function actionDmlipid($byear=2558) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM dm_stroke
                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospname";
@@ -561,7 +561,7 @@ public function actionDmlipid($byear=2558) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM dm_heart
                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospname";
@@ -611,7 +611,7 @@ public function actionDmlipid($byear=2558) {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM dm_predm
                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospname";
@@ -656,7 +656,7 @@ public function actionDmlipid($byear=2558) {
 
     public function actionIndivdmpatient($cup = null,$byear=nul) {
 
-        $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(total),0)as total 
+        $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(total),0)as total ,sdate
                 FROM dm_patient
                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospname";
@@ -705,7 +705,7 @@ public function actionDmlipid($byear=2558) {
 
     public function actionIndivdmpatientvisit($cup = null,$byear=nul) {
 
-        $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(total),0)as total 
+        $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(total),0)as total ,sdate
                 ,Format(SUM(visit),0) as visit
                 ,Format(SUM(visit_all),0) as visit_all
                 FROM dm_patient_visit

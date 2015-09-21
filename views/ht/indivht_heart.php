@@ -98,7 +98,7 @@ $dataProvider = new ArrayDataProvider([
             'panel' => [           
                 'type' => GridView::TYPE_SUCCESS,
                 'heading' => 'HT พบภาวะแทรกซ้อน หัวใจและหลอดเลือด',
-
+                'footer'=>'ประมวลผล ณ วันที่  : '.  date('Y-m-d',strtotime($rawData[0]['sdate'])),
                         ],
                     ]);
             ?>

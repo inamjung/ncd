@@ -1,4 +1,5 @@
 <?php
+
 $this->title = 'DM คัดกรองอายุ35ปีขึ้นไป แต่ละสถานบริการ ';
 $this->params['breadcrumbs'][] = ['label' => 'DM คัดกรองอายุ35ปีขึ้นไป', 'url' => ['dm/dmscreen']];
 
@@ -115,6 +116,7 @@ echo GridView::widget([
     'panel' => [
         'type' => GridView::TYPE_INFO,
         'heading' => 'DM คัดกรองอายุ35ปีขึ้นไป ',
+        'footer'=>'ประมวลผล ณ วันที่  : '.  date('Y-m-d',strtotime($rawData[0]['sdate'])), 
     ],
 ]);
 ?>

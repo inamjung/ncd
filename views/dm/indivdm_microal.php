@@ -1,4 +1,5 @@
 <?php
+
 //$this->title = 'DM ได้รับการตรวจ Microalbumin ปี 2558';
 $this->params['breadcrumbs'][] = ['label' => 'DM ได้รับการตรวจ Microalbumin', 'url' => ['dm/dmmicroal']];
 
@@ -98,7 +99,7 @@ $dataProvider = new ArrayDataProvider([
             'panel' => [           
                 'type' => GridView::TYPE_INFO,
                 'heading' => 'DM ได้รับการตรวจ Microalbumin ',
-
+                'footer'=>'ประมวลผล ณ วันที่  : '.  date('Y-m-d',strtotime($rawData[0]['sdate'])),
                         ],
                     ]);
             ?>

@@ -87,7 +87,7 @@ $gridColumns = [
             'panel' => [           
                 'type' => GridView::TYPE_SUCCESS,
                 'heading' => 'DM ได้รับการตรวจ HbA1C ปีงบประมาณ '.$byear,
-                 'footer' => 'ประมวลผล ณ วันที่ :  '.$datas[5]['sdate']  
+                 'footer'=>'ประมวลผล ณ วันที่  : '.  date('Y-m-d',strtotime($datas[5]['sdate'])), 
                         ],
                     ]);
             ?>

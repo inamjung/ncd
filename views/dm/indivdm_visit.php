@@ -1,4 +1,5 @@
 <?php
+
 //$this->title = 'DM รับบริการที่สถานบริการ ปี 2558';
 $this->params['breadcrumbs'][] = ['label' => 'DM รับบริการที่สถานบริการ', 'url' => ['dm/dmpatientvisit']];
 
@@ -98,7 +99,7 @@ $dataProvider = new ArrayDataProvider([
             'panel' => [           
                 'type' => GridView::TYPE_INFO,
                 'heading' => 'DM รับบริการที่สถานบริการ ',
-
+                'footer'=>'ประมวลผล ณ วันที่  : '.  date('Y-m-d',strtotime($rawData[0]['sdate'])),
                         ],
                     ]);
             ?>

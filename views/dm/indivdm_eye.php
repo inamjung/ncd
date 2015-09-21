@@ -1,5 +1,6 @@
 <?php
 //$this->title = 'DM ตรวจตาปี 2558';
+
 $this->params['breadcrumbs'][] = ['label' => 'DM ตรวจตา', 'url' => ['dm/dmeye']];
 
 $this->params['breadcrumbs'][]=$this->title;
@@ -98,7 +99,7 @@ $dataProvider = new ArrayDataProvider([
             'panel' => [           
                 'type' => GridView::TYPE_INFO,
                 'heading' => 'DM ตรวจตา',
-
+                'footer'=>'ประมวลผล ณ วันที่  : '.  date('Y-m-d',strtotime($rawData[0]['sdate'])),
                         ],
                     ]);
             ?>

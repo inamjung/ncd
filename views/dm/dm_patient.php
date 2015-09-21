@@ -62,7 +62,7 @@ $gridColumns = [
             'panel' => [           
                 'type' => GridView::TYPE_SUCCESS,
                 'heading' => 'DM ขึ้นทะเบียน ปีงบประมาณ '.$byear,
-                'footer'=>'ประมวลผล ณ วันที่ :  '.$datas[2]['sdate']
+                'footer'=>'ประมวลผล ณ วันที่  : '.  date('Y-m-d',strtotime($datas[2]['sdate'])), 
                         ],
                     ]);
             ?>

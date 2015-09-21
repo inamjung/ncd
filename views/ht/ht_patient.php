@@ -60,15 +60,16 @@ $gridColumns = [
             'panel' => [           
                 'type' => GridView::TYPE_PRIMARY,
                 'heading' => 'HT ขึ้นทะเบียน ปีงบประมาณ '.$byear,
-                'footer'=>'ประมวลผล ณ วันที่ :  '.$datas[2]['sdate'],                    
+                'footer'=>'ประมวลผล ณ วันที่  : '.  date('Y-m-d',strtotime($datas[2]['sdate'])),                    
                         ]
                     ]);
+            
             ?>
 
 <?php Pjax::end();?> 
 
 <?php //echo Highcharts::widget([
-// echo date('Y-m-d',strtotime('20150731'));
+// 
 //    'options'=>[        
 //        'title'=>['text'=>'HT ขึ้นทะเบียน'],
 //        'xAxis'=>[

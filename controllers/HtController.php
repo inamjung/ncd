@@ -52,7 +52,7 @@ class HtController extends Controller {
         $sql = "SELECT distcode, cup,hospname ,SUM(target)as target 
                 ,SUM(result)as result,SUM(normal)as normal
                 ,SUM(risk) as risk,SUM(riskhigh) as riskhigh
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM ht_screen
                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
@@ -104,7 +104,7 @@ class HtController extends Controller {
 
         $sql = "SELECT distcode, cup,hospname ,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM ht_screen
                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
@@ -160,7 +160,7 @@ class HtController extends Controller {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 ,FORMAT(SUM(hdl),0) as hdl,FORMAT(SUM(hdl_r),0) as hdl_r
                 ,FORMAT(SUM(ldl),0) as ldl,FORMAT(SUM(ldl_r),0) as ldl_r
                 ,FORMAT(SUM(chol),0) as chol,FORMAT(SUM(chol_r),0) as chol_r
@@ -218,7 +218,7 @@ class HtController extends Controller {
 
         $sql = "SELECT distcode, cup,hospname ,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 ,FORMAT(SUM(r1),0) as r1,FORMAT(SUM(r2),0) as r2
                 ,FORMAT(SUM(r3),0) as r3
                 FROM ht_fbs
@@ -272,7 +272,7 @@ class HtController extends Controller {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM ht_control
                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
@@ -324,7 +324,7 @@ class HtController extends Controller {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM ht_dm
                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
@@ -376,7 +376,7 @@ class HtController extends Controller {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM ht_stroke
                  WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
@@ -428,7 +428,7 @@ class HtController extends Controller {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM ht_heart
                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
@@ -479,7 +479,7 @@ class HtController extends Controller {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM ht_kidney
                 WHERE cup='$cup'
                 GROUP BY hospcode";
@@ -530,7 +530,7 @@ class HtController extends Controller {
 
         $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(target),0)as target 
                 ,Format(SUM(result),0) as result
-                ,ROUND((SUM(result) * 100)/SUM(target),2) as total
+                ,ROUND((SUM(result) * 100)/SUM(target),2) as total,sdate
                 FROM ht_preht
                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
@@ -577,7 +577,7 @@ class HtController extends Controller {
 
     public function actionIndivhtpatient($cup = null,$byear=null) {
 
-        $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(total),0)as total 
+        $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(total),0)as total ,sdate
                 FROM ht_patient
                 WHERE byear='$byear' and cup='$cup'
                 GROUP BY hospcode";
@@ -627,7 +627,7 @@ class HtController extends Controller {
 
     public function actionIndivhtpatientvisit($cup = null,$byear=null) {
 
-        $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(total),0)as total
+        $sql = "SELECT distcode, cup ,hospname,FORMAT(SUM(total),0)as total,sdate
                 ,FORMAT(SUM(visit),0)as visit
                 ,FORMAT(SUM(visit_all),0)as visit_all
                 FROM ht_patient_visit

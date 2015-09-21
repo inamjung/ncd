@@ -1,4 +1,5 @@
 <?php
+
 //$this->title = 'DM ที่ควบคุมได้2ครั้งสุดท้าย ปี 2558';
 $this->params['breadcrumbs'][] = ['label' => 'DM ที่ควบคุมได้2ครั้งสุดท้าย', 'url' => ['dm/dmcontrol']];
 
@@ -97,7 +98,7 @@ $dataProvider = new ArrayDataProvider([
             'panel' => [           
                 'type' => GridView::TYPE_INFO,
                 'heading' => 'DM ที่ควบคุมได้2ครั้งสุดท้าย',
-
+                'footer'=>'ประมวลผล ณ วันที่  : '.  date('Y-m-d',strtotime($rawData[0]['sdate'])),
                         ],
                     ]);
             ?>
